@@ -1,0 +1,3883 @@
+{
+	"info": {
+		"_postman_id": "2113eee2-664e-4061-8fd3-8fbc43bdc1e1",
+		"name": "Testes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/FIS-GoWallet---AMEX~dcaae366-cda8-4494-b102-a660e129b742/collection/716398-2113eee2-664e-4061-8fd3-8fbc43bdc1e1?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "Parametros",
+			"item": [
+				{
+					"name": "bloq-reason-action-mapping",
+					"item": [
+						{
+							"name": "bloq-reason-action-mapping - List",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									},
+									{
+										"key": "authorization",
+										"value": "Bearer eyJ0eXAiOiAiSldUIiwgImFsZyI6ICJSUzI1NiIsICJraWQiOiAiODYxMzQ3NjUwIn0.eyJhdWQiOiJWUk9BZG1pblVBVCIsImlzcyI6Imh0dHBzOi8vbG9naW4tdWF0LmZpc2dsb2JhbC5jb20vaWRwL0Zpc0JSIiwianRpIjoiZGZqZ3BnY2NtZ25qbWFvZm9vYWFvYmxobWtrbm9wY2tkbWZrZmtpbyIsIm5iZiI6MTc2Mzk5NjEyOSwic3ViIjoiRTUwMzMyNTMiLCJleHAiOjE3NjQwNTY2MDksImlhdCI6MTc2Mzk5NjEyOSwibm9uY2UiOiJRMjA0VG01UmJIVk5iR3RXY0hoWlpEZEJaRVpEWWw4eGMwVlRRak52YVZwV1puUTRXa2x3V0ZGWFRUUkMiLCJMb2dpbk5hbWUiOiJFNTAzMzI1MyIsIlVJRCI6IjEyNDEwOTA4OTYiLCJGaXJzdE5hbWUiOiJKb3NlIiwiUHJvZmlsZUxpc3QiOiJGSVNCUkFTSUxfVlJPX0FETUlOLEZJU0JSQVNJTF9WUk9fQURNSU5fU1VTVEVOVEFDQU8sRklTQlJBU0lMX1ZST19BRE1JTl9TRUdVUkFOQ0EsRklTQlJBU0lMX1ZST19WSUVXRVJfU1VTVEVOVEFDQU8sRklTQlJBU0lMX1ZST19WSUVXRVJfT1BFUkFET1IiLCJMYXN0TmFtZSI6IkFsdmVzIiwiRW1haWxBZGRyZXNzIjoiam9zZS5hbHZlc0BmaXNnbG9iYWwuY29tIiwiYWNjZXNzVG9rZW4iOiJlYjM0YTdjY2FkZGIwM2FlZWZiOGMyZTg5YmRmOWYwYyIsImV4cGlyZXNfaW4iOiIxNzY0MDU2NjA4OTM1In0.Ab4J9fZE1M-Ei2r7ruwOsgMgxdJsFpI-y21M-pW-OC1ZEJzCKbI2aBFlwXV5aOi7t1gefe0xMYwr8_4mJvQEmIoYEYRjq-51WjDLl-qSSVtTOH8ITm8ztx_nQ27DB-98HPlhJcgKxsbwmoEZMp8QwySTG_eRAeUrL2QzynzymrtUMMeAucEyJHvMFpCAbSd8FHNvphRdnvRPVENTDZNiyAN3VVE1vdaad10HaB46AzOE3OgMj8xisfD5yE3AS4wRAPhltP6HRiKxQTJoS6Mdvw5c-pifOvI3Vk3gd_s6VyOsxH55qZTUs90g8S3UvzUwEuRshOywoJUOn8BWkmsZHA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"corp\" : \"18\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/bloq-reason-action-mapping/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bloq-reason-action-mapping",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bloq-reason-action-mapping - List-by-key",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"corp\" : \"18\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/bloq-reason-action-mapping/list-by-key",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bloq-reason-action-mapping",
+										"list-by-key"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bloq-reason-action-mapping  - Update",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"corp\" : \"18\",\r\n    \"key\" : \"CORRELATION_ONEB2K_PRODUCT_ID_TO_AMEX_PRODUCT_ID\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/bloq-reason-action-mapping/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bloq-reason-action-mapping",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bloq-reason-action-mapping  - Delete",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"corp\": \"18\",\r\n        \"cod_bloq\": \"JF\",\r\n        \"reason\": \"333\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/bloq-reason-action-mapping/delete",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bloq-reason-action-mapping",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bloq-reason-action-mapping  - Add",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "content-type",
+										"type": "text"
+									},
+									{
+										"key": "Content-Length",
+										"value": "<calculated when request is sent>",
+										"name": "content-length",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"corp\": \"18\",\r\n        \"cod_bloq\": \"JF\",\r\n        \"reason\": \"333\",\r\n        \"descricao\": \"TESTE FERNANDO\",\r\n        \"amex_lcm_acao\": \"DELETE\",\r\n        \"oneb2k_lcm_flag\": \"REMOVE\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/bloq-reason-action-mapping/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bloq-reason-action-mapping",
+										"add"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "list",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"corp\" : \"18\",\r\n    \"key\" : \"SMS_MESSAGE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fisgowallet-api.fnis.com.br/parametros/list",
+							"protocol": "https",
+							"host": [
+								"fisgowallet-api",
+								"fnis",
+								"com",
+								"br"
+							],
+							"path": [
+								"parametros",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"parametroKey\": {\r\n            \"corp\": \"18\",\r\n            \"key\": \"SMS_MESSAGE\"\r\n        },\r\n        \"value\": \"ddd\",\r\n        \"description\": \"\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/parametros/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parametros",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"parametroKey\": {\r\n        \"corp\": \"18\",\r\n        \"key\": \"TESTE FERNANDO\"\r\n    },\r\n    \"value\": \"JOSE\",\r\n    \"description\": \"TESTE INCLUSAO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/parametros/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parametros",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-card-to-test-beta",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"corp_id\": \"18\",\r\n    \"nr_cartao\": \"370204000020487\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fisgowallet-api.fnis.com.br/parametros/add-card-to-test-beta",
+							"protocol": "https",
+							"host": [
+								"fisgowallet-api",
+								"fnis",
+								"com",
+								"br"
+							],
+							"path": [
+								"parametros",
+								"add-card-to-test-beta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list-card-test-beta",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"corp_id\": \"18\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fisgowallet-api.fnis.com.br/parametros/list-card-test-beta",
+							"protocol": "https",
+							"host": [
+								"fisgowallet-api",
+								"fnis",
+								"com",
+								"br"
+							],
+							"path": [
+								"parametros",
+								"list-card-test-beta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove-card-to-test-beta",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"corp_id\": \"18\",\r\n    \"nr_cartao\": \"370204000087502\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/parametros/remove-card-to-test-beta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parametros",
+								"remove-card-to-test-beta"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Proviosionamento",
+			"item": [
+				{
+					"name": "Account Eligibility Check API",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:  { account_number : \"370204000076240\" }  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    },\r",
+									");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "65465464646"
+							},
+							{
+								"key": "token_requestor_id",
+								"value": "30010030273"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.HHHES0MTklVvgOJKPdd7AtP5DuOEIsR59pL3pINGE-n_KW5QJ97g9w.eNWNsfTBpIhgJFty.sMtXbfJoTvoFkBDos9kzZv620rHfcv1KPAFEK9D60ybsdft2mQd-Yp4QlgJT54D-F2rrjx1saHRE6Whf4r9lWvIiEvUqathhP41Onhvyc1VOgvKbLJqC1jC0r4JUYzfzyN2Uj7_qqw2NyvFeSuQBxWz9foHFuoEqHA.XQsjJjP9MW9l00Ma6v2o3g\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounts/v1/accountEligibilityCheck",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts",
+								"v1",
+								"accountEligibilityCheck"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RiskAssessment",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+									"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+									"\r",
+									"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+									"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", // PM dynamic var\r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"security_code\":\"3448\",\"expiry_date\":\"1228\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "b3735ed91bc1d259c3e49d149a307f05=88921a9930c5adbb2a7d86338771933d",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "TESTE_FER_1"
+							},
+							{
+								"key": "token_requestor_id",
+								"value": "30010030273"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"encrypted_account_data\" : \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.HHHES0MTklVvgOJKPdd7AtP5DuOEIsR59pL3pINGE-n_KW5QJ97g9w.eNWNsfTBpIhgJFty.sMtXbfJoTvoFkBDos9kzZv620rHfcv1KPAFEK9D60ybsdft2mQd-Yp4QlgJT54D-F2rrjx1saHRE6Whf4r9lWvIiEvUqathhP41Onhvyc1VOgvKbLJqC1jC0r4JUYzfzyN2Uj7_qqw2NyvFeSuQBxWz9foHFuoEqHA.XQsjJjP9MW9l00Ma6v2o3g\",\r\n  \"risk_assessment_data\" : {\r\n      \"provider_fpan_source\" :\"ISSUERAPP\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"PHONE\",\r\n    \"device_id\" : \"CELULAR15082025_01\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5882\",\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"2\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/accounts/riskassessment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"accounts",
+								"riskassessment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Issuer Notification APIs - pendingauth",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:{\"token_number\":\"370000125594548\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "interbanktesting00922XXXX"
+							},
+							{
+								"key": "token_requestor_id",
+								"value": "30010030273"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.ushGie-nLBymbHD7oNObKPKQFSorAFONg5TuKoYTGdhIJOzpDyGGdw.cveleqpawKehZeUP.HaEcoHo5-ueSZxhglU9_y4zj5UPQ_kJxjgK8EjXxzgl0wk9vMa60aLtrATwqwkAfDNILnT1vz5mkVEm9AHxWThAsimFtWXGUz7O1ULUVqE8.KbImTsxYHBPqFeh7AgUbLw\",\r\n\"encrypted_token_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.Z4sqDKiE7kEh2GXMm7rztCAKzEYwlEQpbtBKz9tCgMCMsfF1htdf6Q.o1C5NYV98CgNbFXc.5WbvpM1NY27zgJVMB2276O7TavA2Zwbuc_DRx0o6q8iOkgd7arhmJ3UHQNufLTLZAHZpWtFqhy4jX8OohxGEIuRpyxptQGV7lRP-.sdAWMUtxiZIZE1iL00sD7g\",    \r\n    \"notification_type\": \"pendingauth\",    \r\n    \"device_data\": {\r\n        \"device_id\": \"CELULAR15082025_01\",\r\n        \"device_type\": \"PHONe\"\r\n    },\r\n\"token_metadata\": {\r\n    \"expiry_date\": \"2029-07-31\",\r\n    \"effective_date\": \"2025-07-03\",\r\n    \"status\": \"PendingActivate\"\r\n  },    \r\n    \"event_data\": {\r\n        \"status\": \"0000\", \r\n        \"event_time\": \"2025-05-30T11:07:31.417\",\r\n        \"event_originator\": \"Wallet\",\r\n        \"reason\": \"pendingauth\",\r\n        \"wallet_provider_code\" : \"YK\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tokens/notification",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tokens",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Issuer Notification APIs - provision",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:{\"token_number\":\"370000125594548\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "interbanktesting00922XXXX"
+							},
+							{
+								"key": "token_requestor_id",
+								"value": "30010030273"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.wDpA4JRqgwW8vIntr4CN1jnWZIMBxPek_IMznNtaWpk8OWraOManVw.-Sw5RHMv7LNhOVyr.L6-iqded-v04Se4gZ55pHBf02M-gTYFUu2HXM9JO-adTsXz4SIWAkG0B2cL_Ia-T18kn0ar3OHhClCbje0b1mbWk8_KFCMSeGG3sx9zeVPY.YaG5x6Y7GD7Snk4DfBh7DA\",\r\n\"encrypted_token_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.Z4sqDKiE7kEh2GXMm7rztCAKzEYwlEQpbtBKz9tCgMCMsfF1htdf6Q.o1C5NYV98CgNbFXc.5WbvpM1NY27zgJVMB2276O7TavA2Zwbuc_DRx0o6q8iOkgd7arhmJ3UHQNufLTLZAHZpWtFqhy4jX8OohxGEIuRpyxptQGV7lRP-.sdAWMUtxiZIZE1iL00sD7g\",    \r\n    \"notification_type\": \"provision\",\r\n    \"token_metadata\": {\r\n        \"expiry_date\": \"2026-02-28\",\r\n        \"effective_date\": \"2025-05-30\",\r\n        \"status\": \"Active\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"CELULAR15082025_01\",\r\n        \"device_type\": \"PHONE\",\r\n        \"wallet_id\" : \"wallet123\"\r\n    },\r\n    \"event_data\": {\r\n        \"reason\": \"proVIsion\",\r\n        \"status\": \"0000\",\r\n        \"event_time\": \"2025-05-30T11:07:31.417\",\r\n        \"event_originator\": \"Wallet\",\r\n        \"wallet_provider_code\" : \"YK\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tokens/notification",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tokens",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Issuer Notification APIs - suspend",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:{\"token_number\":\"370000125594548\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "interbanktesting00922XXXX"
+							},
+							{
+								"key": "token_requestor_id",
+								"value": "30010030273"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.UEJ2FgfNvAY1J7H60Rn6TDiEe0hbbDOQfDJGf-yxHo01Z9hoE7rTBw.HrBUHTRm5POJUmQk.qH4pElcz5AAo6ySP-MRAU34UFkPFZNovpWDiRV-2HoUSlYmSmL-vMr5y27e_zOjE4xLx4gxRm3TKMjab7LDYZA50119aSsFuYSNqJ0xfoiNQ6dDiByOaa-dQuYFEIaFb6AKrgQ.McGT9C9t40L4g5_govp4sg\",\r\n    \"encrypted_token_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.XB-swLA0n13IKUHald0sb-_s7EaIM8R6ONYcnl2vhD0O02-8vrQ34w.8UO4jk7_hIHB_zh2.ioyxbLNfhIxme8k-1GeJZPqBn58KUJH7GLeCAUEYodBPMCG5Ynww-ipbDQXbRuAOBxm0pXTLw2jI0NDNUEoSePfdgpYl7CRdzgKQ-0u89BJwyg.8-LIl6Aj8NdlFuwjhGvoNw\",\r\n    \"notification_type\": \"suspend\",\r\n    \"token_metadata\": {\r\n        \"expiry_date\": \"2026-02-28\",\r\n        \"effective_date\": \"2025-05-30\",\r\n        \"status\": \"Suspended\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"9bca0383ed4263b00826\",\r\n        \"device_type\": \"PHONE\",\r\n        \"wallet_id\" : \"wallet123\"\r\n    },\r\n    \"event_data\": {\r\n        \"reason\": \"suspend\",\r\n        \"status\": \"0000\",\r\n        \"event_time\": \"2025-05-30T11:07:31.417\",\r\n        \"event_originator\": \"Wallet\",\r\n        \"wallet_provider_code\" : \"YK\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tokens/notification",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tokens",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Issuer Notification APIs - resume",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:{\"token_number\":\"370000125594548\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "interbanktesting00922XXXX"
+							},
+							{
+								"key": "token_requestor_id",
+								"value": "30010030273"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.UEJ2FgfNvAY1J7H60Rn6TDiEe0hbbDOQfDJGf-yxHo01Z9hoE7rTBw.HrBUHTRm5POJUmQk.qH4pElcz5AAo6ySP-MRAU34UFkPFZNovpWDiRV-2HoUSlYmSmL-vMr5y27e_zOjE4xLx4gxRm3TKMjab7LDYZA50119aSsFuYSNqJ0xfoiNQ6dDiByOaa-dQuYFEIaFb6AKrgQ.McGT9C9t40L4g5_govp4sg\",\r\n    \"encrypted_token_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.XB-swLA0n13IKUHald0sb-_s7EaIM8R6ONYcnl2vhD0O02-8vrQ34w.8UO4jk7_hIHB_zh2.ioyxbLNfhIxme8k-1GeJZPqBn58KUJH7GLeCAUEYodBPMCG5Ynww-ipbDQXbRuAOBxm0pXTLw2jI0NDNUEoSePfdgpYl7CRdzgKQ-0u89BJwyg.8-LIl6Aj8NdlFuwjhGvoNw\",\r\n    \"notification_type\": \"resume\",\r\n    \"token_metadata\": {\r\n        \"expiry_date\": \"2026-02-28\",\r\n        \"effective_date\": \"2025-05-30\",\r\n        \"status\": \"Active\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"9bca0383ed4263b00826\",\r\n        \"device_type\": \"PHONE\",\r\n        \"wallet_id\" : \"wallet123\"\r\n    },\r\n    \"event_data\": {\r\n        \"reason\": \"resume\",\r\n        \"status\": \"0000\",\r\n        \"event_time\": \"2025-05-30T11:07:31.417\",\r\n        \"event_originator\": \"Wallet\",\r\n        \"wallet_provider_code\" : \"YK\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tokens/notification",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tokens",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Issuer Notification APIs - delete",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:{\"token_number\":\"370000125594548\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "interbanktesting00922XXXX"
+							},
+							{
+								"key": "token_requestor_id",
+								"value": "30010030273"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.ushGie-nLBymbHD7oNObKPKQFSorAFONg5TuKoYTGdhIJOzpDyGGdw.cveleqpawKehZeUP.HaEcoHo5-ueSZxhglU9_y4zj5UPQ_kJxjgK8EjXxzgl0wk9vMa60aLtrATwqwkAfDNILnT1vz5mkVEm9AHxWThAsimFtWXGUz7O1ULUVqE8.KbImTsxYHBPqFeh7AgUbLw\",\r\n\"encrypted_token_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.Z4sqDKiE7kEh2GXMm7rztCAKzEYwlEQpbtBKz9tCgMCMsfF1htdf6Q.o1C5NYV98CgNbFXc.5WbvpM1NY27zgJVMB2276O7TavA2Zwbuc_DRx0o6q8iOkgd7arhmJ3UHQNufLTLZAHZpWtFqhy4jX8OohxGEIuRpyxptQGV7lRP-.sdAWMUtxiZIZE1iL00sD7g\",      \r\n    \"notification_type\": \"DELETE\",\r\n    \"token_metadata\": {\r\n        \"expiry_date\": \"2026-02-28\",\r\n        \"effective_date\": \"2025-05-30\",\r\n        \"status\": \"Cancelled\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"CELULAR15082025_01\",\r\n        \"device_type\": \"PHONE\",\r\n        \"wallet_id\" : \"wallet123\"\r\n    },\r\n    \"event_data\": {\r\n        \"reason\": \"DELETE\",\r\n        \"status\": \"0000\",\r\n        \"event_time\": \"2025-05-30T11:07:31.417\",\r\n        \"event_originator\": \"Wallet\",\r\n        \"wallet_provider_code\" : \"YK\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tokens/notification",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tokens",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comunicacao",
+			"item": [
+				{
+					"name": "communicationChannels - GET",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:{\"token_number\":\"370000125594548\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=57566EC1DA9DAE3E628CE3914249EEE4",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "getChannel001"
+							},
+							{
+								"key": "token_requestor_id",
+								"value": "30000000024"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.HHHES0MTklVvgOJKPdd7AtP5DuOEIsR59pL3pINGE-n_KW5QJ97g9w.eNWNsfTBpIhgJFty.sMtXbfJoTvoFkBDos9kzZv620rHfcv1KPAFEK9D60ybsdft2mQd-Yp4QlgJT54D-F2rrjx1saHRE6Whf4r9lWvIiEvUqathhP41Onhvyc1VOgvKbLJqC1jC0r4JUYzfzyN2Uj7_qqw2NyvFeSuQBxWz9foHFuoEqHA.XQsjJjP9MW9l00Ma6v2o3g\" \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/accounts/communicationChannels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"accounts",
+								"communicationChannels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "communicationChannels - SEND",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:{\"token_number\":\"370000125594548\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "interbanktesting00922XXXX"
+							},
+							{
+								"key": "token_requestor_id",
+								"value": "30010030273"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"encrypted_account_data\":\"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.HHHES0MTklVvgOJKPdd7AtP5DuOEIsR59pL3pINGE-n_KW5QJ97g9w.eNWNsfTBpIhgJFty.sMtXbfJoTvoFkBDos9kzZv620rHfcv1KPAFEK9D60ybsdft2mQd-Yp4QlgJT54D-F2rrjx1saHRE6Whf4r9lWvIiEvUqathhP41Onhvyc1VOgvKbLJqC1jC0r4JUYzfzyN2Uj7_qqw2NyvFeSuQBxWz9foHFuoEqHA.XQsjJjP9MW9l00Ma6v2o3g\",\"device_data\":{\"device_id\":\"CELULAR15082025_01\",\"device_type\":\"phone\"},\"verification_code\":\"111112\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/accounts/communicationChannels/SMS01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"accounts",
+								"communicationChannels",
+								"SMS01"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Controle Elegibilidade",
+			"item": [
+				{
+					"name": "desbloquear-elegibilidade",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:{\"token_number\":\"370000125594548\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "interbanktesting00922XXXX"
+							},
+							{
+								"key": "account",
+								"value": "370204000055806"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.wDpA4JRqgwW8vIntr4CN1jnWZIMBxPek_IMznNtaWpk8OWraOManVw.-Sw5RHMv7LNhOVyr.L6-iqded-v04Se4gZ55pHBf02M-gTYFUu2HXM9JO-adTsXz4SIWAkG0B2cL_Ia-T18kn0ar3OHhClCbje0b1mbWk8_KFCMSeGG3sx9zeVPY.YaG5x6Y7GD7Snk4DfBh7DA\" \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/desbloquear-elegibilidade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"desbloquear-elegibilidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bloquear-elegibilidade",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.environment.get(\"JWE_Key\"));\r",
+									"console.log(pm.environment.get(\"JWE_KID\"));\r",
+									"\r",
+									"var key = pm.environment.get(\"JWE_Key\");\r",
+									"var kid = pm.environment.get(\"JWE_KID\");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data: {\"account_number\":\"370204000012559\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");\r",
+									"\r",
+									"pm.sendRequest({\r",
+									"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken\", \r",
+									"    method: \"POST\",\r",
+									"    header: {\r",
+									"        \"Content-Type\": \"application/json\"\r",
+									"    },\r",
+									"    body: {\r",
+									"            mode: 'raw',\r",
+									"            raw: JSON.stringify({ data:{\"token_number\":\"370000125594548\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+									"    }},\r",
+									"    function (err, responseData) {\r",
+									"        console.log(\"Error is : \" +  err);\r",
+									"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+									"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Success Test\",function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"    pm.response.to.be.json\r",
+									"    var jsonResponse=pm.response.json();\r",
+									"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+									"   \r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "interbanktesting00922XXXX"
+							},
+							{
+								"key": "account",
+								"value": "370204000055806"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.hNpIvkjbbKeH0iF0_r_J278iuRrZZ0e_6StKus3NzKYLPaXRODr65A.AU-0eUkEDn0SAf4T.x7uYVz64oP6zBYWcSAdfkDPt8JXw8U6LWgoAtfnUiQb0_uMjs8D40droWbr5wzj3MPWEsUkIqyNIrqtOQmckmLtQzI9afCx6Da19j7f-lcv8QhSpnPzcdOpalZSQB_DH-IoO1g.obisbQ7I52Rq2XRmLPtTEw\" \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bloquear-elegibilidade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bloquear-elegibilidade"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LCM",
+			"item": [
+				{
+					"name": "inquiry_results",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "b3735ed91bc1d259c3e49d149a307f05=538aa822ee6b8ba943ba36157acefc88",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "0",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "corp_id",
+								"value": "18"
+							},
+							{
+								"key": "nr_cartao",
+								"value": "370204000012450"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/tokens/inquiry_results",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tokens",
+								"inquiry_results"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supend/Resume Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "0",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "org_id",
+								"value": "18",
+								"type": "text"
+							},
+							{
+								"key": "httpVerb",
+								"value": "POST",
+								"type": "text"
+							},
+							{
+								"key": "token_number",
+								"value": "340066402757694",
+								"type": "text"
+							},
+							{
+								"key": "device_id",
+								"value": "04581C55F02C9002516709852941287003AC988322B15F9C",
+								"type": "text"
+							},
+							{
+								"key": "nr_cartao",
+								"value": "370204000087502",
+								"type": "text"
+							},
+							{
+								"key": "wallet_id",
+								"value": "YK",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "11313131313131",
+								"type": "text"
+							},
+							{
+								"key": "device_type",
+								"value": "Phone",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/payments/digital/v1/provisionings/tokens/freeze",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payments",
+								"digital",
+								"v1",
+								"provisionings",
+								"tokens",
+								"freeze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel (Delete)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "0",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "org_id",
+								"value": "18",
+								"type": "text"
+							},
+							{
+								"key": "httpVerb",
+								"value": "DELETE",
+								"type": "text"
+							},
+							{
+								"key": "token_number",
+								"value": "340066402757694",
+								"type": "text"
+							},
+							{
+								"key": "device_id",
+								"value": "04581C55F02C9002516709852941287003AC988322B15F9C",
+								"type": "text"
+							},
+							{
+								"key": "nr_cartao",
+								"value": "370204000087502",
+								"type": "text"
+							},
+							{
+								"key": "wallet_id",
+								"value": "YK",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "11313131313131",
+								"type": "text"
+							},
+							{
+								"key": "device_type",
+								"value": "Phone",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/payments/digital/v1/provisionings/tokens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payments",
+								"digital",
+								"v1",
+								"provisionings",
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Eventos Go Wallet",
+			"item": [
+				{
+					"name": "Consulta Evento By Tracking-Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fisgowallet-api-uat.fnis.com.br/eventos/find/convd217bc4485535ae1d597",
+							"protocol": "https",
+							"host": [
+								"fisgowallet-api-uat",
+								"fnis",
+								"com",
+								"br"
+							],
+							"path": [
+								"eventos",
+								"find",
+								"convd217bc4485535ae1d597"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inquery_results_go_wallet - by cpf",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "0",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "nr_cpf_portador",
+								"value": "21083562070",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://fisgowallet-api.fnis.com.br/tokens/inquery_results_go_wallet/04402393892",
+							"protocol": "https",
+							"host": [
+								"fisgowallet-api",
+								"fnis",
+								"com",
+								"br"
+							],
+							"path": [
+								"tokens",
+								"inquery_results_go_wallet",
+								"04402393892"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inquery_results_go_wallet - by Cartao",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "0",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "nr_cpf_portador",
+								"value": "21083562070",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://fisgowallet-api-uat.fnis.com.br/tokens/inquery_results_go_wallet/cartao/370204000079103",
+							"protocol": "https",
+							"host": [
+								"fisgowallet-api-uat",
+								"fnis",
+								"com",
+								"br"
+							],
+							"path": [
+								"tokens",
+								"inquery_results_go_wallet",
+								"cartao",
+								"370204000079103"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Push LCM",
+			"item": [
+				{
+					"name": "push-account-lcm-message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "b3735ed91bc1d259c3e49d149a307f05=add9e616860c062dc46918a12d2fdf42",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "TESTE_01",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\" : \"01018370204000087502 203009     \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/push-account-lcm-message",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"push-account-lcm-message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/test-account-lcm-message-process",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "b3735ed91bc1d259c3e49d149a307f05=add9e616860c062dc46918a12d2fdf42",
+								"name": "cookie",
+								"type": "text"
+							},
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "tracking_id",
+								"value": "TESTE_01",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipoMensagem\": \"01\",\r\n  \"corpId\": \"18\",\r\n  \"nrCartao\": \"370204000076240\",\r\n  \"dtValidade\": \"203011\",\r\n  \"codBloq\": \"SS\",\r\n  \"reason\": \"402\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/test-account-lcm-message-process",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"test-account-lcm-message-process"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REDE AMEX MOCK",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(pm.environment.get(\"JWE_Key\"));\r",
+							"console.log(pm.environment.get(\"JWE_KID\"));\r",
+							"\r",
+							"var key = pm.environment.get(\"JWE_Key\");\r",
+							"var kid = pm.environment.get(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"370204000012559\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    },\r",
+							");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "30010030273"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"account\": {\r\n        \"account_number\" : \"370204000012559\",\r\n        \"security_code\" : \"3448\",\r\n        \"expiry_date\" : \"1228\",\r\n        \"pan_sequence\" : \"00\"\r\n    },\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"9bca0383ed4263b0080_1\",\r\n        \"wallet_id\": \"YK\",\r\n        \"device_type\": \"phone\" \r\n    },\r\n    \"communication_type\" : \"EMAIL\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/rede_amex_mock/accounts/v1/mockRedeAmex",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rede_amex_mock",
+						"accounts",
+						"v1",
+						"mockRedeAmex"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TokenLCM",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "corp_id",
+						"value": "18"
+					},
+					{
+						"key": "nr_cartao",
+						"value": "370204000012559"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://fisgowallet-api-uat.fnis.com.br/tokens/inquiry_results",
+					"protocol": "https",
+					"host": [
+						"fisgowallet-api-uat",
+						"fnis",
+						"com",
+						"br"
+					],
+					"path": [
+						"tokens",
+						"inquiry_results"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start-lcm-file-process",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/start-lcm-file-process",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"start-lcm-file-process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test-account-lcm-message-process",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tipoMensagem\": \"01\",\r\n  \"corpId\": \"18\",\r\n  \"nrCartaoAnterior\": \"\",\r\n  \"nrCartaoVigente\": \"370204000079103\",\r\n  \"dtVencimento\": \"20300201\",\r\n  \"codBloqCartaoAnterior\": \"\",\r\n  \"reasonCodeCartaoAnterior\": \"\",\r\n  \"codBloqCartaoVigente\": \"\",\r\n  \"reasonCodeCartaoVigente\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/test-account-lcm-message-process",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test-account-lcm-message-process"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

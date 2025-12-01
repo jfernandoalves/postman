@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "72e345c3-41d9-42e7-97e4-3317e47b9b20",
+		"name": "One-Time Passcode Management Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/FIS-GoWallet---AMEX~dcaae366-cda8-4494-b102-a660e129b742/collection/716398-72e345c3-41d9-42e7-97e4-3317e47b9b20?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "/accounts/v1/communicationChannels",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(pm.environment.get(\"JWE_Key\"));\r",
+							"console.log(pm.environment.get(\"JWE_KID\"));\r",
+							"\r",
+							"var key = pm.environment.get(\"JWE_Key\");\r",
+							"var kid = pm.environment.get(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"370204000012559\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"device_data\": {\r\n        \"device_id\": \"04B1D0FD61C25F02B74628A89C78BE7DCB7AFFFFFFFFFFFC\",\r\n        \"device_type\": \"phone\",\r\n        \"wallet_id\" : \"4656465646\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fisgowallet-api-set.apps.openshift-sit.fnis.com.br/accounts/v1/communicationChannels",
+					"protocol": "https",
+					"host": [
+						"fisgowallet-api-set",
+						"apps",
+						"openshift-sit",
+						"fnis",
+						"com",
+						"br"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"communicationChannels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/accounts/v1/communicationChannels/{channelID}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(pm.environment.get(\"JWE_Key\"));\r",
+							"console.log(pm.environment.get(\"JWE_KID\"));\r",
+							"\r",
+							"var key = pm.environment.get(\"JWE_Key\");\r",
+							"var kid = pm.environment.get(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"370204000012559\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"verification_code\":\"123456789545d\",\r\n    \"device_data\": {\r\n        \"device_id\": \"04B1D0FD61C25F02B74628A89C78BE7DCB7AFFFFFFFFFFFC\",\r\n        \"device_type\": \"phone\",\r\n        \"wallet_id\" : \"4656465646\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/accounts/communicationChannels/:channelID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"accounts",
+						"communicationChannels",
+						":channelID"
+					],
+					"variable": [
+						{
+							"key": "channelID",
+							"value": "EMAIL01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,943 @@
+{
+	"info": {
+		"_postman_id": "61386f4d-3302-45a3-8f5c-d2a060a33d74",
+		"name": "Risk_Assessment_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/FIS-GoWallet---AMEX~dcaae366-cda8-4494-b102-a660e129b742/collection/716398-61386f4d-3302-45a3-8f5c-d2a060a33d74?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "RiskAssessmentRequestNotAuthorized",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", // PM dynamic var\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057201\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Request Not Authorized Test\",function(){\r",
+							"    pm.response.to.have.status(401)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4200')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{tokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n  \"risk_assessment_data\" : {\r\n    \"provider_fpan_source\" : \"userinput\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"phone\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n    \"device_id\" : \"31343735303034323139363438\",\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"0001.00\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RiskAssessmentMissingField_Removed DeviceId",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Missing Field Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4210')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{tokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n  \"risk_assessment_data\" : {\r\n    \"provider_fpan_source\" : \"userinput\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"phone\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n    \"device_id\" : null,\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"0001.00\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RiskAssessmentInvalidFieldLength_deviceType",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", // PM dynamic var\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Invalid Field Length Test\",function(){\r",
+							"    pm.response.to.have.status(400)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4211')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{tokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"provider_fpan_source\": \"userinput\",\r\n        \"provider_riskscore\": \"Y\",\r\n        \"device_type\": \"Wirelessphone\",\r\n        \"device_id_score\": \"3\",\r\n        \"first_name\": \"Kapila Nanayakkara\",\r\n        \"wallet_userid\": \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n        \"device_id\": \"31343735303034323139363438\",\r\n        \"device_name\": \"iPhone kap\",\r\n        \"provider_risk_rsncds\": \"03,04,09\",\r\n        \"source_ip\": \"93.168.138.146\",\r\n        \"account_score\": \"4\",\r\n        \"address_city\": \"Sarasota City\",\r\n        \"address_region_cd\": \"FL\",\r\n        \"address_iso_ctry_cd\": \"USA\",\r\n        \"provider_riskscore_version\": \"0001.00\",\r\n        \"dpan_counts\": \"5\",\r\n        \"latitude_coordinates\": \"+24.68\",\r\n        \"longitude_coordinates\": \"+46.71\",\r\n        \"device_language_code\": \"es\",\r\n        \"phone_number\": \"966533233096\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RiskAssessmentTokenRequestorNotSupported",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", // PM dynamic var\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Token Requestor Not Supported Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5201')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "unsupportedRequestor",
+						"description": "unsupported Token Requestor",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n  \"risk_assessment_data\" : {\r\n    \"provider_fpan_source\" : \"userinput\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"phone\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n    \"device_id\" : \"31343735303034323139363438\",\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"0001.00\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RiskAssessmentInvalidAccountNumber",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", // PM dynamic var\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998056000\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Invalid Account Number Test\",function(){\r",
+							"    pm.response.to.have.status(404)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4212')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{tokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n  \"risk_assessment_data\" : {\r\n    \"provider_fpan_source\" : \"userinput\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"phone\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n    \"device_id\" : \"31343735303034323139363438\",\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"0001.00\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RiskAssessmentCardMarketNotSupported",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", // PM dynamic var\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057210\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Card Market not Supported Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5210')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{tokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n  \"risk_assessment_data\" : {\r\n    \"provider_fpan_source\" : \"userinput\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"phone\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n    \"device_id\" : \"31343735303034323139363438\",\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"0001.00\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RiskAssessmentCardProductNotSupported",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", // PM dynamic var\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057211\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Card Product not Supported Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5211')\r",
+							"    \r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{tokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n  \"risk_assessment_data\" : {\r\n    \"provider_fpan_source\" : \"userinput\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"phone\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n    \"device_id\" : \"31343735303034323139363438\",\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"0001.00\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RiskAssessmentCardStatusNotSupported",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", // PM dynamic var\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057213\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Card Status not Supported Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5213')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{tokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n  \"risk_assessment_data\" : {\r\n    \"provider_fpan_source\" : \"userinput\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"phone\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n    \"device_id\" : \"31343735303034323139363438\",\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"0001.00\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RiskAssessmentCardLockedOut",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", // PM dynamic var\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057214\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Card Locked Out Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5223')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{tokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n  \"risk_assessment_data\" : {\r\n    \"provider_fpan_source\" : \"userinput\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"phone\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n    \"device_id\" : \"31343735303034323139363438\",\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"0001.00\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RiskAssessmentCardDataNotFound",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", // PM dynamic var\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057212\",\"security_code\":\"3017\",\"expiry_date\":\"0626\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Card Data Not Found Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5212')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{trackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{tokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n  \"risk_assessment_data\" : {\r\n    \"provider_fpan_source\" : \"userinput\",\r\n    \"provider_riskscore\" : \"Y\",\r\n    \"device_type\" : \"phone\",\r\n    \"device_id_score\" : \"3\",\r\n    \"first_name\" : \"Kapila Nanayakkara\",\r\n    \"wallet_userid\" : \"bfe0b9be4fee50f8e033cff02fe429c500024c09b6a7f8e3113a608068cc5881\",\r\n    \"device_id\" : \"31343735303034323139363438\",\r\n    \"device_name\" : \"iPhone kap\",\r\n    \"provider_risk_rsncds\" : \"03,04,09\",\r\n    \"source_ip\" : \"93.168.138.146\",\r\n    \"account_score\" : \"4\",\r\n    \"address_city\" : \"Sarasota\",\r\n    \"address_region_cd\" : \"FL\",\r\n    \"address_iso_ctry_cd\" : \"USA\",\r\n    \"provider_riskscore_version\" : \"0001.00\",\r\n    \"dpan_counts\" : \"5\",\r\n    \"latitude_coordinates\" : \"+24.68\",\r\n    \"longitude_coordinates\" : \"+46.71\",\r\n    \"device_language_code\" : \"es\",\r\n    \"phone_number\" : \"966533233096\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/riskassessment",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"riskassessment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

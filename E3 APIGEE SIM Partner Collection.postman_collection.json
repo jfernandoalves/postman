@@ -1,0 +1,1048 @@
+{
+	"info": {
+		"_postman_id": "793bc602-b83b-436a-9eb7-81a8f40ba406",
+		"name": "E3 APIGEE SIM Partner Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/FIS-GoWallet---AMEX~dcaae366-cda8-4494-b102-a660e129b742/collection/716398-793bc602-b83b-436a-9eb7-81a8f40ba406?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "GET /apis",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/apis",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"apis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /connections",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"api_name\":\"notification\",\r\n    \"api_url\":\"<Please provide your api url here>\"\r\n}"
+				},
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/connections",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"connections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /connections",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/connections",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"connections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /templates",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/templates",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"templates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /templates byID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"description": "Please provide your client id here",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/templates/11",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"templates",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"template_id\": 11,\r\n    \"template_name\": \"Success\",\r\n    \"api_name\": \"notification\",\r\n    \"test_name\": \"Default Test Name\",\r\n    \"body_fields\": {\r\n        \"event_data.reason\": \"provision\",\r\n        \"event_data.status\": \"0000\",\r\n        \"notification_type\": \"provision\",\r\n        \"encrypted_token_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.Cw5cGAaZpmr-yjxnVVcGz_5C6Z8EHaLYVHt_ysdwG8TN1_0bkwxZtA.-nkEnsknJ3JoiVqc.rBnR-NhwPw1y80EeVjVSYSmUhpmR2oEF01xnU5HlQ-MWScAgikExH4ElCZo0SWXnv6YosrXuseA9biLDOMOYIGUWOB_IxeadLVoKteARY3C5MUJaP3oeKTUBh40YMMwu.rLqrCuuO82U-kgdPU-By6A\",\r\n        \"device_data.device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n        \"event_data.event_time\": \"2022-02-22T11:32:31.417\",\r\n        \"token_metadata.status\": \"Active\",\r\n        \"encrypted_account_data\": \"eyJraWQiOiJKV0VfQUVTX0FNWF8yMjA5XzAwMDEiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiQTI1NktXIn0.LAcHuZc-LHV429GdSaS180bMWQuU88spA_su10Urn5eRKCo4S2TnTA.CB3QW3VyjYptYG31.-12KsvUd1wWKhAfM06QH26LMSXrLQYBYtwX9W06xRHzt24a3tXaivrOqXzgqjlr1UKWl11zNuUA.0Pwi39GwFb9p3OfGsGessg\",\r\n        \"device_data.device_type\": \"phone\",\r\n        \"token_metadata.expiry_date\": \"2026-02-28\",\r\n        \"event_data.event_originator\": \"Wallet\",\r\n        \"token_metadata.effective_date\": \"2022-02-22\"\r\n    },\r\n    \"header_fields\": {\r\n        \"tracking_id\": \"uniqueconversationId1654\",\r\n        \"Content-Type\": \"application/json\",\r\n        \"token_requestor_id\": \"default\"\r\n    },\r\n    \"http_method\": \"POST\"\r\n}"
+				},
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/tests",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"tests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET tests",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/tests",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"tests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /tests byID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/tests/{{testId}}",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"tests",
+						"{{testId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /testExecutions",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/tests/{{testId}}/testExecutions",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"tests",
+						"{{testId}}",
+						"testExecutions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET EXECUTIONS",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/tests/{{testId}}/testExecutions",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"tests",
+						"{{testId}}",
+						"testExecutions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /testExecutions byID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var ts = parseInt((new Date()).getTime());\r",
+							"\r",
+							"var nonce = \"\";\r",
+							"var charset = \"abcdefghijklmnopqrstuvwxyz0123456789\";\r",
+							"for( var i=0; i < 36; i++ ) nonce += charset.charAt(Math.floor(Math.random() * charset.length));\r",
+							"\r",
+							"var method = request.method;\r",
+							"\r",
+							"var request_url = request.url;\r",
+							"\r",
+							"var payload = (request.data.length > 0)?request.data:\"\";\r",
+							"\r",
+							"\r",
+							"\r",
+							"var index = request_url.split('/');\r",
+							"var index1 = index[2].split(':');\r",
+							"\r",
+							"var host = index1[0];\r",
+							"var port = (index1.length > 1)?index1[1]:\"443\";\r",
+							"\r",
+							"var resourceUri = request_url.substring(request_url.indexOf(host) + host.length);\r",
+							"\r",
+							"postman.setGlobalVariable(\"resourceUri\", resourceUri);\r",
+							"\r",
+							"var allQueryParams = pm.request.url.query.all();\r",
+							"allQueryParams.forEach(function(queryparams){\r",
+							"    console.log(\"key: \" + queryparams.key + \", value: \" + queryparams.value);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var hashPayload = CryptoJS.HmacSHA256(payload, environment.secret);\r",
+							"var hashBase64Payload = CryptoJS.enc.Base64.stringify(hashPayload);\r",
+							"\r",
+							"var macInput = ts + \"\\n\" + nonce + \"\\n\" + method + \"\\n\" + resourceUri + \"\\n\" + host + \"\\n\" + port + \"\\n\" + hashBase64Payload + \"\\n\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"macInput\", macInput);\r",
+							"\r",
+							"var hashMac = CryptoJS.HmacSHA256(macInput, environment.secret);\r",
+							"var hashBase64Mac = CryptoJS.enc.Base64.stringify(hashMac);\r",
+							"\r",
+							"var signature= \"MAC id=\\\"\" + environment.key + \"\\\",ts=\\\"\" + ts + \"\\\",nonce=\\\"\" + nonce + \"\\\",bodyhash=\\\"\" + hashBase64Payload + \"\\\",mac=\\\"\" + hashBase64Mac + \"\\\"\";\r",
+							"\r",
+							"postman.setGlobalVariable(\"signature\", signature);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AMEX-API-KEY",
+						"value": "{{key}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{signature}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://sandbox2s.americanexpress.com/apitools/v1/outbound/tests/{{testId}}/testExecutions/{{testExecutionId}}",
+					"protocol": "https",
+					"host": [
+						"sandbox2s",
+						"americanexpress",
+						"com"
+					],
+					"path": [
+						"apitools",
+						"v1",
+						"outbound",
+						"tests",
+						"{{testId}}",
+						"testExecutions",
+						"{{testExecutionId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

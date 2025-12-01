@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "e5ac05e0-1188-4d02-8c59-2d87ed9f787c",
+		"name": "ZENVIA FIS - JHSF",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/My-Workspace~e2c3b71a-a4fb-475a-87dd-69256d18d9b4/collection/716398-e5ac05e0-1188-4d02-8c59-2d87ed9f787c?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "JHSF",
+			"item": [
+				{
+					"name": "JHSF - Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "TenantId",
+								"value": "62962543c236e695fea1cccd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Clientid",
+									"value": "a7RcPGyg7U9jFYWVSVLN",
+									"type": "text"
+								},
+								{
+									"key": "Grand_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "ClientSecret",
+									"value": "5f99bxkkzNXtwGy0",
+									"type": "text"
+								},
+								{
+									"key": "Audience",
+									"value": "https://apicore.d1.cx",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://apicore.d1.cx/login/62962543c236e695fea1cccd/token",
+							"protocol": "https",
+							"host": [
+								"apicore",
+								"d1",
+								"cx"
+							],
+							"path": [
+								"login",
+								"62962543c236e695fea1cccd",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JHSF - SEND EMAIL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b2tlbi1nZW5lcmF0b3JAb2F1dGgtcHJvZC0zMTk2MTIuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL2FwaWNvcmUuZDEuY3gvIiwiZXhwIjoxNzQ5MTIxMzIwLCJpYXQiOjE3NDkwMzY3MjAsInN1YiI6InRva2VuLWdlbmVyYXRvckBvYXV0aC1wcm9kLTMxOTYxMi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsImVtYWlsIjoidG9rZW4tZ2VuZXJhdG9yQG9hdXRoLXByb2QtMzE5NjEyLmlhbS5nc2VydmljZWFjY291bnQuY29tIn0.O6KX8VSxtJJrD4-zvYJp0PIK90eBXc4xgd0i0mfndCKIS1coCz9ds9aD_rM9ZB1IeOyihIFnKuECBiIMnmyqmC8DQR_5c64ds3Dru_kc_Y_STy0SsxNHc0WdvYyzFiIKPsaAdgJ6o0sdVVbr0gQkqhlH7W56cL-jd1xX9XkcISbYBpgncmWWHd0VOFGFH7antetTm4Jhzyn23WXFiHSsjUkLb8w5Fm460VzLXZW5WyHw9jf1pFijhqLh2eMQwP-vROQ2J-rOWihJHfss4zJsXRhAgfpVdc_cI2bT_g4irwesalN0RvMGcXa8tZrufnf0mPzVy4xX4HrUJsApqvEjpQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "TenantId",
+								"value": "62962543c236e695fea1cccd",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"journeyId\": \"65491e3a7e3f4155a1fd1343\",\r\n  \"correlationId\": \"d512aa49-adcf-4990-98b6-cd09df5591f2dd123\",\r\n  \"variables\": {\r\n    \"VAR_NOME_PORTADOR_CARTAO\": \"JOSE FERNANDO\",\r\n    \"VAR_CODIGO_SEGURANCA\": \"123456789545\",\r\n    \"VAR_IDENTIFICACAO_DO_DEVICE\": \"04B1D0FD61C25F02B74628A89C78BE7DCB7AFFFFFFFFFFFC\"\r\n  },\r\n  \"customer\": {\r\n    \"id\": \"44526295205\",\r\n    \"name\": \"Teste fernando\",\r\n    \"emails\": [\r\n      {\r\n        \"address\": \"jose.alves@fisglobal.com\",\r\n        \"kind\": \"comercial\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apicore.d1.cx/journey/v1/send",
+							"protocol": "https",
+							"host": [
+								"apicore",
+								"d1",
+								"cx"
+							],
+							"path": [
+								"journey",
+								"v1",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PAGARE",
+			"item": [
+				{
+					"name": "PAGARE - Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "TenantId",
+								"value": "62962d9cc236e695fea1ccce",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Clientid",
+									"value": "AiKGdhIfUhyrZEOgOqBN",
+									"type": "text"
+								},
+								{
+									"key": "Grand_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "ClientSecret",
+									"value": "9XkFw13AgfHI2ia6",
+									"type": "text"
+								},
+								{
+									"key": "Audience",
+									"value": "https://apicore.d1.cx",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://apicore.d1.cx/login/62962d9cc236e695fea1ccce/token",
+							"protocol": "https",
+							"host": [
+								"apicore",
+								"d1",
+								"cx"
+							],
+							"path": [
+								"login",
+								"62962d9cc236e695fea1ccce",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PAGARE - SEND EMAIL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0b2tlbi1nZW5lcmF0b3JAb2F1dGgtcHJvZC0zMTk2MTIuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJhdWQiOiJodHRwczovL2FwaWNvcmUuZDEuY3gvIiwiZXhwIjoxNzAxOTQ5NTY3LCJpYXQiOjE3MDE4NjQ5NjcsInN1YiI6InRva2VuLWdlbmVyYXRvckBvYXV0aC1wcm9kLTMxOTYxMi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSIsImVtYWlsIjoidG9rZW4tZ2VuZXJhdG9yQG9hdXRoLXByb2QtMzE5NjEyLmlhbS5nc2VydmljZWFjY291bnQuY29tIn0.mi5yMfdedgNLKkxyqrim8ac2LnAsDB_t8P-v45zTvwVch7m-NcLCrMtgjdJgLCRrS3W-onBOGCjj_fOAPJLyAo-QdX7cXuy0GXmzixZwXKB2skI7HA6G595Pg9snIGrio3WSQkOsNivCc9LtsV3a_hOquY8_CLgvrlG7vuMTNL2CtK77ZhrPo-zyG-j-w7k0cYqvueV92ko_KEwA725eEL7MhcscsQyd3iBroBB06R_NGZU7DcAwAQAxzWEKLUU0LVQV56WPssC2fdejAQwgL4BOl2mfZxaLU2ZevlmQjhTrFCcSGcBLxf8cW8uDRSNuF3TH7WlAEVA1uFA9br0Ssg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "TenantId",
+								"value": "62962d9cc236e695fea1ccce",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"journeyId\": \"6549131f787e1a1fcd250ea8\",\r\n  \"correlationId\": \"d512aa49-adcf-4990-98b6-cd09df5591f2dd12D\",\r\n  \"versionId\": \"(Token) Carteira Digital\",\r\n  \"variables\": {\r\n    \"VAR_NOME_PORTADOR_CARTAO\": \"JOSE FERNANDO\",\r\n    \"VAR_CODIGO_SEGURANCA\": \"123456789545\",\r\n    \"VAR_IDENTIFICACAO_DO_DEVICE\": \"04B1D0FD61C25F02B74628A89C78BE7DCB7AFFFFFFFFFFFC\"\r\n  },\r\n  \"customer\": {\r\n    \"id\": \"44526295205\",\r\n    \"name\": \"Teste fernando\",\r\n    \"emails\": [\r\n      {\r\n        \"address\": \"jose.alves@fisglobal.com\",\r\n        \"kind\": \"comercial\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apicore.d1.cx/journey/v1/send",
+							"protocol": "https",
+							"host": [
+								"apicore",
+								"d1",
+								"cx"
+							],
+							"path": [
+								"journey",
+								"v1",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

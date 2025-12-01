@@ -1,0 +1,2007 @@
+{
+	"info": {
+		"_postman_id": "31404208-9ec0-4f75-9f64-dac796531a43",
+		"name": "Notification_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/FIS-GoWallet---AMEX~dcaae366-cda8-4494-b102-a660e129b742/collection/716398-31404208-9ec0-4f75-9f64-dac796531a43?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "Issuer Notification APIs Field Length Invalid",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Invalid Field Length Test\",function(){\r",
+							"    pm.response.to.have.status(400)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4610')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n    \"token_metadata\": {\r\n        \"expiry_date\": \"2026-02-28\",\r\n        \"effective_date\": \"2022-02-22\",\r\n        \"status\": \"Active\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"04343BCBC8568001926610165830264984C9609A97B73985452453824538484587345\",\r\n        \"device_type\": \"phone\"\r\n    },\r\n    \"notification_type\": \"provision\",\r\n    \"event_data\": {\r\n        \"reason\": \"provision\",\r\n        \"status\": \"0000\",\r\n        \"event_time\": \"2022-02-22T11:32:31.417\",\r\n        \"event_originator\": \"Wallet\"\r\n    }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Issuer Notification APIs Account Number Invalid",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998056000\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Invalid Field Length Test\",function(){\r",
+							"    pm.response.to.have.status(404)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4620')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n    \"token_metadata\": {\r\n        \"expiry_date\": \"2026-02-28\",\r\n        \"effective_date\": \"2022-02-22\",\r\n        \"status\": \"Active\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"04343BCBC8568001926610165830264984C9609A97B73985\",\r\n        \"device_type\": \"phone\"\r\n    },\r\n    \"notification_type\": \"provision\",\r\n    \"event_data\": {\r\n        \"reason\": \"provision\",\r\n        \"status\": \"0000\",\r\n        \"event_time\": \"2022-02-22T11:32:31.417\",\r\n        \"event_originator\": \"Wallet\"\r\n    }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Issuer Notification APIs OTP lockout Notification(after 10 OTP Attempt within 24 hours)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"pendingauth\",\r\n\"event_data\": {\r\n\"reason\": \"4002\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Wallet\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Issuer Notification APIs OTP lockout Notification(after 3 Incorrect OTP Attempt)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"pendingauth\",\r\n\"event_data\": {\r\n\"reason\": \"4001\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Wallet\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Issuer Notification APIs yellow flow Notification",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"PendingActivate\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"pendingauth\",\r\n\"event_data\": {\r\n\"reason\": \"4001\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Wallet\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Wallet Initiated Life Cycle Management  - Token Cancelled/Delete",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"delete\",\r\n\"event_data\": {\r\n\"reason\": \"delete\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Wallet\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Wallet Initiated Life Cycle Management  - Token Resume",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"resume\",\r\n\"event_data\": {\r\n\"reason\": \"resume\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Wallet\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Wallet Initiated Life Cycle Management  - Token Suspend",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"suspend\",\r\n\"event_data\": {\r\n\"reason\": \"suspend\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Wallet\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on  Issuer Initiated TOKEN Activation (OTP Override)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"2500220000026653\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"2500220000026653\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n    \"token_metadata\": {\r\n        \"expiry_date\": \"2026-02-28\",\r\n        \"effective_date\": \"2022-02-15\",\r\n        \"status\": \"Active\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"04B1D0FD61C25F02B74628A89C78BE7DCB7AFFFFFFFFFFFC\",\r\n        \"device_type\": \"desktop\",\r\n        \"wallet_id\" : \"4656465646\"\r\n    },\r\n    \"notification_type\": \"resume\",\r\n    \"event_data\": {\r\n        \"reason\": \"resume\",\r\n        \"status\": \"0000\",\r\n        \"event_time\": \"2022-02-15T04:19:52.766\",\r\n        \"event_originator\": \"Issuer\"\r\n    }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on  Issuer Initiated TOKEN Activation",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"resume\",\r\n\"event_data\": {\r\n\"reason\": \"resume\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Issuer\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Issuer Initiated Life Cycle Management  - Account Cancelled/Delete",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\":\"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"delete\",\r\n\"event_data\": {\r\n\"reason\": \"delete\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Issuer\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Issuer Initiated Life Cycle Management  - Account Resume",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\" : \"{{encrypted_account_data}}\",\r\n    \"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n        \"token_metadata\": {\r\n        \"expiry_date\": \"2026-02-28\",\r\n        \"effective_date\": \"2022-02-22\",\r\n        \"status\": \"Active\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"04343BCBC8568001926610165830264984C9609A97B73985\",\r\n        \"device_type\": \"phone\"\r\n    },\r\n    \"notification_type\": \"resume\",\r\n    \"event_data\": {\r\n        \"reason\": \"resume\",\r\n        \"status\": \"0000\",\r\n        \"event_time\": \"2022-02-22T11:32:31.417\",\r\n        \"event_originator\": \"Issuer\"\r\n    }\r\n\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Issuer Initiated Life Cycle Management  - Account Suspend",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"suspend\",\r\n\"event_data\": {\r\n\"reason\": \"suspend\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Issuer\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Issuer Initiated Life Cycle Management  - Account Asset Update",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2026-02-28\",\r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"accountupdate\",\r\n\"event_data\": {\r\n\"reason\": \"accountupdate\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Issuer\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Issuer Initiated Life Cycle Management  - Account Replacement",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2022-02-15\", \r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"accountupdate\",\r\n\"event_data\": {\r\n\"reason\": \"accountupdate\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Issuer\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Issuer Initiated Life Cycle Management  - Account Expiry Date Update",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2022-02-15\", \r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"accountupdate\",\r\n\"event_data\": {\r\n\"reason\": \"accountupdate\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Issuer\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Issuer Initiated Life Cycle Management  - Token Suspend",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2022-02-15\", \r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"suspend\",\r\n\"event_data\": {\r\n\"reason\": \"suspend\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Issuer\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Issuer Initiated Life Cycle Management  - token resume",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2022-02-15\", \r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"resume\",\r\n\"event_data\": {\r\n\"reason\": \"resume\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Issuer\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notification on Issuer Initiated Life Cycle Management  - token delete",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data: {\"account_number\":\"XXXXXX998057209\",\"pan_sequence\":\"00\"}  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptToken\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:{\"token_number\":\"XXXXXX869262753\",\"token_reference\":\"DAPLAB076M0767027594aefde446197d09c36b788\"} , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value for token is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_token_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Success Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('0000')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n\"encrypted_token_data\": \"{{encrypted_token_data}}\",\r\n\"token_metadata\": {\r\n\"expiry_date\": \"2022-02-15\", \r\n\"effective_date\": \"2022-02-15\",\r\n\"status\": \"Active\"\r\n},\r\n\"device_data\": {\r\n\"device_id\": \"04071C139E6280020333104677307859E658BA7C73F4C6FB\",\r\n\"device_type\": \"desktop\"\r\n},\r\n\"notification_type\": \"delete\",\r\n\"event_data\": {\r\n\"reason\": \"delete\",\r\n\"status\": \"0000\",\r\n\"event_time\": \"2022-02-15T04:19:52.766\",\r\n\"event_originator\": \"Issuer\"\r\n}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{base-url}}/tokens/notification",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"tokens",
+						"notification"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

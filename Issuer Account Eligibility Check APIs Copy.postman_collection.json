@@ -1,0 +1,1007 @@
+{
+	"info": {
+		"_postman_id": "b2dbeb2f-5244-4ea8-8e01-8ac61767f8df",
+		"name": "Issuer Account Eligibility Check APIs Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/FIS-GoWallet---AMEX~dcaae366-cda8-4494-b102-a660e129b742/collection/716398-b2dbeb2f-5244-4ea8-8e01-8ac61767f8df?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "Account Eligibility Check Request for Error code Missing Fieldname",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998057209\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Error code Missing Fieldname Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4210')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/v1/accountEligibilityCheck",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Eligibility Check Request for Error code Account Invalid",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998056000\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Error code Account Invalid Test\",function(){\r",
+							"    pm.response.to.have.status(404)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4212')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}}\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/v1/accountEligibilityCheck",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Eligibility Check Request for Error code Card_locked_out",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998057214\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Card_locked_out Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5223')\r",
+							"   \r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}}\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/v1/accountEligibilityCheck",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Eligibility Check Request for Error code Card Not Eligible",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998057215\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Card Not Eligible Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5216')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}}\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/v1/accountEligibilityCheck",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Eligibility Check Request for Error code Card Market Not Supported",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998057210\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Card Market not Supported Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5210')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}}\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/v1/accountEligibilityCheck",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Eligibility Check Request for Error code Card Product Not Supported",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998057211\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Card Product not Supported Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5211')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}}\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/v1/accountEligibilityCheck",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Eligibility Check Request for Error code Card Data Not Found",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998057212\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Data Not Found Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5212')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}}\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/v1/accountEligibilityCheck",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Eligibility Check Request for Error code Card Status Not Supported",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998057213\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Card Status Not Supported\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5213')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}}\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/v1/accountEligibilityCheck",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Eligibility Check Request for Error code TokenRequestor Not Supported",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998057209\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"TokenRequestor Not Supported Test\",function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('5201')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "unsupportedRequestor",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}\"}\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/accounts/v1/accountEligibilityCheck",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Elegibility Check Request NotAuthorized",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX998057210\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Request Not Authorized Test\",function(){\r",
+							"    pm.response.to.have.status(401)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4200')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}}\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8443/accounts/v1/accountEligibilityCheck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account Elegibility Check Request InvalidFieldLength_deviceType",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(postman.getEnvironmentVariable(\"JWE_Key\"));\r",
+							"console.log(postman.getEnvironmentVariable(\"JWE_KID\"));\r",
+							"\r",
+							"var key = postman.getEnvironmentVariable(\"JWE_Key\");\r",
+							"var kid = postman.getEnvironmentVariable(\"JWE_KID\");\r",
+							"\r",
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:8080/encryptAccount\", \r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({ data:  { account_number : \"XXXXXX99805721\" }  , KID : kid, Key : key})\r",
+							"    }},\r",
+							"    function (err, responseData) {\r",
+							"        console.log(\"Error is : \" +  err);\r",
+							"        console.log(\"response value is \" + responseData.json().encryptedPayload);\r",
+							"        pm.environment.set(\"encrypted_account_data\", responseData.json().encryptedPayload);\r",
+							"    }\r",
+							");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"BAD REQUEST\",function(){\r",
+							"    pm.response.to.have.status(400)\r",
+							"    pm.response.to.be.json\r",
+							"    var jsonResponse=pm.response.json();\r",
+							"    pm.expect(jsonResponse.status_code).to.eql('4211')\r",
+							"   \r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "tracking_id",
+						"value": "{{TrackingId}}",
+						"type": "text"
+					},
+					{
+						"key": "token_requestor_id",
+						"value": "{{TokenRequestorId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"encrypted_account_data\": \"{{encrypted_account_data}}\",\r\n    \"risk_assessment_data\": {\r\n        \"connecting_information\": \"{{connecting_information}}\",\r\n        \"fpan_source\": \"{{fpan_source}}\"\r\n    },\r\n    \"device_data\": {\r\n        \"device_id\": \"{{device_id}}\",\r\n        \"wallet_id\": \"{{wallet_id}}\",\r\n        \"device_type\": \"{{device_type}}\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8443/accounts/v1/accountEligibilityCheck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"accounts",
+						"v1",
+						"accountEligibilityCheck"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

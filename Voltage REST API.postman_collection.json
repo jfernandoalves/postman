@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "b0653e31-ddc0-4450-8b59-1098e98212a7",
+		"name": "Voltage REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/My-Workspace~e2c3b71a-a4fb-475a-87dd-69256d18d9b4/collection/716398-b0653e31-ddc0-4450-8b59-1098e98212a7?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "Encrypt",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"host": true,
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-length": true
+				},
+				"strictSSL": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "VSAuth vsauth_method=\"userPassword\", vsauth_data=\"c3ZjLXZvbHVhdC1wYXJjZWlyb3M6bTRnMHNAMjAxNw==\", vsauth_identity_ascii=\"parceiros@keysuat.fnis-br.com\", vsauth_version=\"200\""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Length",
+						"value": "1000"
+					},
+					{
+						"key": "Host",
+						"value": "voltage-pp-0000.keysuat.fnis-br.com:443"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"format\":\"CC-eFPE-Mid\",\r\n    \"data\":[\"4587963258740125\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://voltage-pp-0000.keysuat.fnis-br.com/vibesimple/rest/v1/protect",
+					"protocol": "https",
+					"host": [
+						"voltage-pp-0000",
+						"keysuat",
+						"fnis-br",
+						"com"
+					],
+					"path": [
+						"vibesimple",
+						"rest",
+						"v1",
+						"protect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Encrypt Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"host": true,
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-length": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "VSAuth vsauth_method=\"userPassword\", vsauth_data=\"c3ZjX3Z0Z19hcGlfY2M6VnojOFZmNC4=\", vsauth_identity_ascii=\"svc_vtg_api_cc@keysprd.fnis-br.com\", vsauth_version=\"200\"",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "1000",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "voltage-pp-0000.keysprd.fnis-br.com:443",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"format\":\"AlphaNumeric\",\r\n    \"data\":[\"1234567890123456\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://voltage-pp-0000.keysprd.fnis-br.com/vibesimple/rest/v1/protect",
+					"protocol": "https",
+					"host": [
+						"voltage-pp-0000",
+						"keysprd",
+						"fnis-br",
+						"com"
+					],
+					"path": [
+						"vibesimple",
+						"rest",
+						"v1",
+						"protect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decrypt",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"host": true,
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"content-length": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "VSAuth vsauth_method=\"userPassword\", vsauth_data=\"c3ZjLXZvbHVhdC1wYXJjZWlyb3M6bTRnMHNAMjAxNw==\", vsauth_identity_ascii=\"parceiros@keysuat.fnis-br.com\", vsauth_version=\"200\"",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "1000",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "voltage-pp-0000.keysuat.fnis-br.com:443",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"format\":\"CC-eFPE-Mid\",\r\n    \"data\":[\"532912PQM7HO1772\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://voltage-pp-0000.keysuat.fnis-br.com/vibesimple/rest/v1/access",
+					"protocol": "https",
+					"host": [
+						"voltage-pp-0000",
+						"keysuat",
+						"fnis-br",
+						"com"
+					],
+					"path": [
+						"vibesimple",
+						"rest",
+						"v1",
+						"access"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VOLTAGE-API (Springboot)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://vtg-api-homolog.fnis.com.br:8443/enc/457896587452145",
+					"protocol": "http",
+					"host": [
+						"vtg-api-homolog",
+						"fnis",
+						"com",
+						"br"
+					],
+					"port": "8443",
+					"path": [
+						"enc",
+						"457896587452145"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://voltage-pp-0000.keysuat.fnis-br.com",
+			"type": "string"
+		}
+	]
+}

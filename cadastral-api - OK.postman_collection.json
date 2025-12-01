@@ -1,0 +1,4448 @@
+{
+	"info": {
+		"_postman_id": "1c061647-c55d-47f2-8dcd-b0a844a54723",
+		"name": "cadastral-api - OK",
+		"description": "Esta API trata-se das operações cadastrais.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/My-Workspace~e2c3b71a-a4fb-475a-87dd-69256d18d9b4/collection/716398-1c061647-c55d-47f2-8dcd-b0a844a54723?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "oneb2k",
+			"item": [
+				{
+					"name": "conta",
+					"item": [
+						{
+							"name": "dados Cadastrais",
+							"item": [
+								{
+									"name": "Consulta de dados cadastrais do portador do cartão - Pessoa Física e Pessoa Jurídica.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "3313cb5402e3db4e338e769f5a2e0402=d4d83f976675daf2198180bb114c401e",
+												"name": "cookie",
+												"type": "text"
+											},
+											{
+												"key": "Cache-Control",
+												"value": "no-cache",
+												"name": "cache-control",
+												"type": "text"
+											},
+											{
+												"key": "Postman-Token",
+												"value": "<calculated when request is sent>",
+												"name": "postman-token",
+												"type": "text"
+											},
+											{
+												"key": "Host",
+												"value": "<calculated when request is sent>",
+												"name": "host",
+												"type": "text"
+											},
+											{
+												"key": "User-Agent",
+												"value": "PostmanRuntime/7.39.1",
+												"name": "user-agent",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*",
+												"name": "accept",
+												"type": "text"
+											},
+											{
+												"key": "Accept-Encoding",
+												"value": "gzip, deflate, br",
+												"name": "accept-encoding",
+												"type": "text"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive",
+												"name": "connection",
+												"type": "text"
+											},
+											{
+												"key": "nrConta",
+												"value": "4984270080005193",
+												"description": "(Required) Número da conta cartão."
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "X-JWT-Assertion",
+												"value": "INTERNO:13",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/conta/dadosCadastrais",
+											"protocol": "https",
+											"host": [
+												"cadastral-api",
+												"apps",
+												"openshift",
+												"fnis",
+												"com",
+												"br"
+											],
+											"path": [
+												"1.0.0",
+												"oneb2k",
+												"conta",
+												"dadosCadastrais"
+											]
+										},
+										"description": "**Service Link:** GCH/GBZ\n  * Consulta de dados cadastrais do portador do cartão ***`(PF/PJ)`*** - Por Conta Cartão.\n"
+									},
+									"response": [
+										{
+											"name": "Successful",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseData\": {\n    \"produto\": \"PF\",\n    \"nome1\": \"ANA C. DA SILVA\",\n    \"dtNascimento1\": \"1957-11-17\",\n    \"nrDocumento1\": \"985.154.850-89\",\n    \"idSexo1\": \"F\",\n    \"idEstadoCivil1\": \"S\",\n    \"fone1\": \"15 3458-4544\",\n    \"fone2\": \"15 3458-4544\",\n    \"fone3\": \"15 3458-4544\",\n    \"nome2\": \"ANA C. DA SILVA\",\n    \"dtNascimento2\": \"2011-04-21\",\n    \"nrDocumento2\": \"985.154.850-89\",\n    \"idSexo2\": \"F\",\n    \"idEstadoCivil2\": \"S\",\n    \"nome3\": \"ANA C. DA SILVA\",\n    \"dtNascimento3\": \"1989-10-20\",\n    \"nrDocumento3\": \"985.154.850-89\",\n    \"idSexo3\": \"F\",\n    \"idEstadoCivil3\": \"S\",\n    \"nome4\": \"ANA C. DA SILVA\",\n    \"dtNascimento4\": \"2004-12-14\",\n    \"nrDocumento4\": \"985.154.850-89\",\n    \"idSexo4\": \"F\",\n    \"idEstadoCivil4\": \"S\",\n    \"diasAtraso\": 3000,\n    \"email\": \"diretoria@flores.com.br\",\n    \"tipoCartao1\": \"K\",\n    \"tipoCartao2\": \"M\",\n    \"endereco\": {\n      \"uf\": \"SP\",\n      \"cidade\": \"SAO PAULO\",\n      \"tipo\": \"C\",\n      \"complemento\": \"Fundos\",\n      \"logradouro\": \"RUA DAS FLORES\",\n      \"bairro\": \"JD. DAS MARGARIDAS\",\n      \"cep\": \"04258-000\"\n    },\n    \"enderecoFatura\": {\n      \"uf\": \"SP\",\n      \"cidade\": \"SAO PAULO\",\n      \"complemento\": \"Fundos\",\n      \"logradouro\": \"RUA DAS FLORES\",\n      \"bairro\": \"JD. DAS MARGARIDAS\",\n      \"cep\": \"04258-000\"\n    },\n    \"informacoesGerais\": {\n      \"idTipo\": \"P\",\n      \"nrConta\": \"9658325485001548\",\n      \"nmEmbossed\": \"MARIA A SILVA\",\n      \"codProduto\": \"001\",\n      \"codSubProduto\": \"AC1\",\n      \"codBloqueio\": \"XW\",\n      \"dtUltimoBloqueio\": \"1982-06-04\",\n      \"indClienteVIP\": \"S\",\n      \"vlLimiteCredito\": 20000,\n      \"vlLimiteCreditoDisponivel\": 2000.5,\n      \"vlLimiteSaque\": 2000,\n      \"vlSaldoAnterior\": 3500,\n      \"vlSaldoAtual\": 3500,\n      \"vlAutorizacoesPendentes\": 530.4,\n      \"vlSaldoParceladoPendente\": 130.4,\n      \"vlComprasFaturar\": 30.4,\n      \"diaVencimento\": \"04\",\n      \"vlLimiteCPF\": 1000,\n      \"flagUnificado\": \"U\",\n      \"tpProcessamento\": \"10\",\n      \"cancelReason\": \"120\",\n      \"historicoVencimento\": \"VA/NV\",\n      \"dtManutencaoUltimoArquivo\": \"20210721\",\n      \"hrManutencaoUltimoArquivo\": \"163714\",\n      \"limiteSaqueDisponivel\": 1000,\n      \"envioFatura\": \"E\"\n    }\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+										},
+										{
+											"name": "BAD REQUEST",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "UNAUTHORIZED",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "FORBIDDEN",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "NOT FOUND",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "TOO MANY REQUESTS",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Too Many Requests",
+											"code": 429,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "INTERNAL SERVER ERROR",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "SERVICE UNAVAILABLE",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Service Unavailable",
+											"code": 503,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Consulta de dados cadastrais do portador do cartão - Pessoa Física e Pessoa Jurídica. Copy",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cookie",
+												"value": "3313cb5402e3db4e338e769f5a2e0402=d4d83f976675daf2198180bb114c401e",
+												"name": "cookie",
+												"type": "text"
+											},
+											{
+												"key": "Cache-Control",
+												"value": "no-cache",
+												"name": "cache-control",
+												"type": "text"
+											},
+											{
+												"key": "Postman-Token",
+												"value": "<calculated when request is sent>",
+												"name": "postman-token",
+												"type": "text"
+											},
+											{
+												"key": "Host",
+												"value": "<calculated when request is sent>",
+												"name": "host",
+												"type": "text"
+											},
+											{
+												"key": "User-Agent",
+												"value": "PostmanRuntime/7.39.1",
+												"name": "user-agent",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*",
+												"name": "accept",
+												"type": "text"
+											},
+											{
+												"key": "Accept-Encoding",
+												"value": "gzip, deflate, br",
+												"name": "accept-encoding",
+												"type": "text"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive",
+												"name": "connection",
+												"type": "text"
+											},
+											{
+												"key": "nrCPF",
+												"value": "19995987848",
+												"description": "(Required) Número da conta cartão."
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "X-JWT-Assertion",
+												"value": "INTERNO:13",
+												"type": "text"
+											},
+											{
+												"key": "idContaAtiva ",
+												"value": "N",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/portador/porCPF/v2",
+											"protocol": "https",
+											"host": [
+												"cadastral-api",
+												"apps",
+												"openshift",
+												"fnis",
+												"com",
+												"br"
+											],
+											"path": [
+												"1.0.0",
+												"oneb2k",
+												"portador",
+												"porCPF",
+												"v2"
+											]
+										},
+										"description": "**Service Link:** GCH/GBZ\n  * Consulta de dados cadastrais do portador do cartão ***`(PF/PJ)`*** - Por Conta Cartão.\n"
+									},
+									"response": [
+										{
+											"name": "Successful",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseData\": {\n    \"produto\": \"PF\",\n    \"nome1\": \"ANA C. DA SILVA\",\n    \"dtNascimento1\": \"1957-11-17\",\n    \"nrDocumento1\": \"985.154.850-89\",\n    \"idSexo1\": \"F\",\n    \"idEstadoCivil1\": \"S\",\n    \"fone1\": \"15 3458-4544\",\n    \"fone2\": \"15 3458-4544\",\n    \"fone3\": \"15 3458-4544\",\n    \"nome2\": \"ANA C. DA SILVA\",\n    \"dtNascimento2\": \"2011-04-21\",\n    \"nrDocumento2\": \"985.154.850-89\",\n    \"idSexo2\": \"F\",\n    \"idEstadoCivil2\": \"S\",\n    \"nome3\": \"ANA C. DA SILVA\",\n    \"dtNascimento3\": \"1989-10-20\",\n    \"nrDocumento3\": \"985.154.850-89\",\n    \"idSexo3\": \"F\",\n    \"idEstadoCivil3\": \"S\",\n    \"nome4\": \"ANA C. DA SILVA\",\n    \"dtNascimento4\": \"2004-12-14\",\n    \"nrDocumento4\": \"985.154.850-89\",\n    \"idSexo4\": \"F\",\n    \"idEstadoCivil4\": \"S\",\n    \"diasAtraso\": 3000,\n    \"email\": \"diretoria@flores.com.br\",\n    \"tipoCartao1\": \"K\",\n    \"tipoCartao2\": \"M\",\n    \"endereco\": {\n      \"uf\": \"SP\",\n      \"cidade\": \"SAO PAULO\",\n      \"tipo\": \"C\",\n      \"complemento\": \"Fundos\",\n      \"logradouro\": \"RUA DAS FLORES\",\n      \"bairro\": \"JD. DAS MARGARIDAS\",\n      \"cep\": \"04258-000\"\n    },\n    \"enderecoFatura\": {\n      \"uf\": \"SP\",\n      \"cidade\": \"SAO PAULO\",\n      \"complemento\": \"Fundos\",\n      \"logradouro\": \"RUA DAS FLORES\",\n      \"bairro\": \"JD. DAS MARGARIDAS\",\n      \"cep\": \"04258-000\"\n    },\n    \"informacoesGerais\": {\n      \"idTipo\": \"P\",\n      \"nrConta\": \"9658325485001548\",\n      \"nmEmbossed\": \"MARIA A SILVA\",\n      \"codProduto\": \"001\",\n      \"codSubProduto\": \"AC1\",\n      \"codBloqueio\": \"XW\",\n      \"dtUltimoBloqueio\": \"1982-06-04\",\n      \"indClienteVIP\": \"S\",\n      \"vlLimiteCredito\": 20000,\n      \"vlLimiteCreditoDisponivel\": 2000.5,\n      \"vlLimiteSaque\": 2000,\n      \"vlSaldoAnterior\": 3500,\n      \"vlSaldoAtual\": 3500,\n      \"vlAutorizacoesPendentes\": 530.4,\n      \"vlSaldoParceladoPendente\": 130.4,\n      \"vlComprasFaturar\": 30.4,\n      \"diaVencimento\": \"04\",\n      \"vlLimiteCPF\": 1000,\n      \"flagUnificado\": \"U\",\n      \"tpProcessamento\": \"10\",\n      \"cancelReason\": \"120\",\n      \"historicoVencimento\": \"VA/NV\",\n      \"dtManutencaoUltimoArquivo\": \"20210721\",\n      \"hrManutencaoUltimoArquivo\": \"163714\",\n      \"limiteSaqueDisponivel\": 1000,\n      \"envioFatura\": \"E\"\n    }\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+										},
+										{
+											"name": "BAD REQUEST",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "UNAUTHORIZED",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "FORBIDDEN",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "NOT FOUND",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "TOO MANY REQUESTS",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Too Many Requests",
+											"code": 429,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "INTERNAL SERVER ERROR",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "SERVICE UNAVAILABLE",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "nrConta",
+														"value": "4587025698521475",
+														"description": "(Required) Número da conta cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/conta/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"conta",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Service Unavailable",
+											"code": 503,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Consultar os portadores a partir de uma conta cartão PF.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "nrConta",
+										"value": "4092810015177879",
+										"description": "(Required) Número da Conta."
+									},
+									{
+										"key": "idContaAtiva",
+										"value": "N",
+										"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+									},
+									{
+										"key": "chaveRestart",
+										"value": "<string>",
+										"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição.",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-JWT-Assertion",
+										"value": "INTERNO:09",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/conta/portador",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"conta",
+										"portador"
+									]
+								},
+								"description": "**Service Link:** CAS\n  * Consultar os portadores a partir de uma conta ***`(PF)`*** - Por Conta Cartão.\n"
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrConta",
+												"value": "<string>",
+												"description": "(Required) Número da Conta."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/conta/portador",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"conta",
+												"portador"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseData\": {\n    \"chaveRestart\": \"chaveRestart\",\n    \"listaContaPortadores\": [\n      {\n        \"jwtCartao\": \"eyJhbGciOiJIUzUxMiJ0.eyJJRF0DQVJUQU8iOiI2Mjc4OTIwMTY2NTI2MjI5IiwiZXhwIjoxNjA0OTUyMDU1fQ.a7NbSl)gNsznPAYUcREgOJ5_Gsuf59STRIpyhTCc8W4-SdoLT-UjhqJfcFXGlwZh-t3JfcG317u_hUN5YWPL8w\",\n        \"tipoCartao\": \"P\",\n        \"nmPortador\": \"JOSE DA SILVA MANOEL\",\n        \"cdBloqueio\": \"W\"\n      },\n      {\n        \"jwtCartao\": \"eyJhbGciOiJIUzUxMiJ0.eyJJRF0DQVJUQU8iOiI2Mjc4OTIwMTY2NTI2MjI5IiwiZXhwIjoxNjA0OTUyMDU1fQ.a7NbSl)gNsznPAYUcREgOJ5_Gsuf59STRIpyhTCc8W4-SdoLT-UjhqJfcFXGlwZh-t3JfcG317u_hUN5YWPL8w\",\n        \"tipoCartao\": \"P\",\n        \"nmPortador\": \"JOSE DA SILVA MANOEL\",\n        \"cdBloqueio\": \"W\"\n      }\n    ]\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+								},
+								{
+									"name": "BAD REQUEST",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrConta",
+												"value": "<string>",
+												"description": "(Required) Número da Conta."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/conta/portador",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"conta",
+												"portador"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "UNAUTHORIZED",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrConta",
+												"value": "<string>",
+												"description": "(Required) Número da Conta."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/conta/portador",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"conta",
+												"portador"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "FORBIDDEN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrConta",
+												"value": "<string>",
+												"description": "(Required) Número da Conta."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/conta/portador",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"conta",
+												"portador"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "NOT FOUND",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrConta",
+												"value": "<string>",
+												"description": "(Required) Número da Conta."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/conta/portador",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"conta",
+												"portador"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "TOO MANY REQUESTS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrConta",
+												"value": "<string>",
+												"description": "(Required) Número da Conta."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/conta/portador",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"conta",
+												"portador"
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "INTERNAL SERVER ERROR",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrConta",
+												"value": "<string>",
+												"description": "(Required) Número da Conta."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/conta/portador",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"conta",
+												"portador"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "SERVICE UNAVAILABLE",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrConta",
+												"value": "<string>",
+												"description": "(Required) Número da Conta."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/conta/portador",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"conta",
+												"portador"
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "portador",
+					"item": [
+						{
+							"name": "Consulta Portadores Pessoa Física e Pessoa Jurídica por CPF.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "nrCPF",
+										"value": "94372167547",
+										"description": "(Required) Número do CPF."
+									},
+									{
+										"key": "idContaAtiva",
+										"value": "N",
+										"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+									},
+									{
+										"key": "chaveRestart",
+										"value": "",
+										"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-JWT-Assertion",
+										"value": "INTERNO:15",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"portador",
+										"porCPF"
+									]
+								},
+								"description": "**Service Link:** SRH\n**PF - Portador Pessoa Física**\n* Se a consulta for pelo **CPF** do titular, responderá o numero da conta cartão e todos os portadores (titular e adicional).\n* Se o adicional possuir **CPF** próprio, ou seja diferente do titular, só será listado o cartão do adicional. A consulta não terá a visão da Conta Cartão ou do Cartão Titular.\n* Para as situações de adicionais que utilizam o **CPF** do titular, a aplicação responderá da mesma forma que uma consulta de um titular.\n\n**PJ - Portador Pessoa Jurídica**\n* Como trata-se de consulta por **CPF**, se um associado for portador de uma empresa, a api responderá, em eventual consulta por **CPF**, apenas o numero do cartão do portador consultado.  \n\n***Todos registros serão identificados conforme segue:***  \n* **C – CONTA CARTÃO** - Conta Cartão.\n* **T – TITULAR** - Refere-se ao número do Cartão Titular da conta.\n* **A - ADICIONAL** - Refere-se ao número do Cartão Adicional.\n* **P - PORTADOR** - Refere-se a número de Cartão Portador PJ.\n\n***Esta API não consulta Billing Account de Pessoa Jurídica. Para consultas de Billing Account utilize a API ``GET - portadoresPorCompID``.***\n"
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseData\": {\n    \"chaveRestart\": \"chaveRestart\",\n    \"listaPortadores\": [\n      {\n        \"tpRegistro\": \"P\",\n        \"nrConta\": \"nrConta\",\n        \"cartao\": {\n          \"jwtCartao\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n          \"nrCartao\": \"529900******8000\"\n        },\n        \"nmPortador\": \"JOSE DA SILVA MANOEL\",\n        \"cdBloqueio\": \"W\",\n        \"enderecoPortador\": {\n          \"uf\": \"SP\",\n          \"cidade\": \"SAO PAULO\",\n          \"numero\": \"45\",\n          \"logradouro\": \"RUA DAS FLORES\",\n          \"cep\": \"04258-000\"\n        },\n        \"cdClassificacaoBloqueio\": \"W\"\n      },\n      {\n        \"tpRegistro\": \"P\",\n        \"nrConta\": \"nrConta\",\n        \"cartao\": {\n          \"jwtCartao\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n          \"nrCartao\": \"529900******8000\"\n        },\n        \"nmPortador\": \"JOSE DA SILVA MANOEL\",\n        \"cdBloqueio\": \"W\",\n        \"enderecoPortador\": {\n          \"uf\": \"SP\",\n          \"cidade\": \"SAO PAULO\",\n          \"numero\": \"45\",\n          \"logradouro\": \"RUA DAS FLORES\",\n          \"cep\": \"04258-000\"\n        },\n        \"cdClassificacaoBloqueio\": \"W\"\n      }\n    ]\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+								},
+								{
+									"name": "BAD REQUEST",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "UNAUTHORIZED",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "FORBIDDEN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "NOT FOUND",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "TOO MANY REQUESTS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "INTERNAL SERVER ERROR",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "SERVICE UNAVAILABLE",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Consulta Portadores Pessoa Física e Pessoa Jurídica por CPF. PRD",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "nrCPF",
+										"value": "94372167547",
+										"description": "(Required) Número do CPF."
+									},
+									{
+										"key": "idContaAtiva",
+										"value": "N",
+										"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+									},
+									{
+										"key": "chaveRestart",
+										"value": "",
+										"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-JWT-Assertion",
+										"value": "INTERNO:15",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/portador/porCPF",
+									"protocol": "https",
+									"host": [
+										"cadastral-api",
+										"apps",
+										"openshift",
+										"fnis",
+										"com",
+										"br"
+									],
+									"path": [
+										"1.0.0",
+										"oneb2k",
+										"portador",
+										"porCPF"
+									]
+								},
+								"description": "**Service Link:** SRH\n**PF - Portador Pessoa Física**\n* Se a consulta for pelo **CPF** do titular, responderá o numero da conta cartão e todos os portadores (titular e adicional).\n* Se o adicional possuir **CPF** próprio, ou seja diferente do titular, só será listado o cartão do adicional. A consulta não terá a visão da Conta Cartão ou do Cartão Titular.\n* Para as situações de adicionais que utilizam o **CPF** do titular, a aplicação responderá da mesma forma que uma consulta de um titular.\n\n**PJ - Portador Pessoa Jurídica**\n* Como trata-se de consulta por **CPF**, se um associado for portador de uma empresa, a api responderá, em eventual consulta por **CPF**, apenas o numero do cartão do portador consultado.  \n\n***Todos registros serão identificados conforme segue:***  \n* **C – CONTA CARTÃO** - Conta Cartão.\n* **T – TITULAR** - Refere-se ao número do Cartão Titular da conta.\n* **A - ADICIONAL** - Refere-se ao número do Cartão Adicional.\n* **P - PORTADOR** - Refere-se a número de Cartão Portador PJ.\n\n***Esta API não consulta Billing Account de Pessoa Jurídica. Para consultas de Billing Account utilize a API ``GET - portadoresPorCompID``.***\n"
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseData\": {\n    \"chaveRestart\": \"chaveRestart\",\n    \"listaPortadores\": [\n      {\n        \"tpRegistro\": \"P\",\n        \"nrConta\": \"nrConta\",\n        \"cartao\": {\n          \"jwtCartao\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n          \"nrCartao\": \"529900******8000\"\n        },\n        \"nmPortador\": \"JOSE DA SILVA MANOEL\",\n        \"cdBloqueio\": \"W\",\n        \"enderecoPortador\": {\n          \"uf\": \"SP\",\n          \"cidade\": \"SAO PAULO\",\n          \"numero\": \"45\",\n          \"logradouro\": \"RUA DAS FLORES\",\n          \"cep\": \"04258-000\"\n        },\n        \"cdClassificacaoBloqueio\": \"W\"\n      },\n      {\n        \"tpRegistro\": \"P\",\n        \"nrConta\": \"nrConta\",\n        \"cartao\": {\n          \"jwtCartao\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n          \"nrCartao\": \"529900******8000\"\n        },\n        \"nmPortador\": \"JOSE DA SILVA MANOEL\",\n        \"cdBloqueio\": \"W\",\n        \"enderecoPortador\": {\n          \"uf\": \"SP\",\n          \"cidade\": \"SAO PAULO\",\n          \"numero\": \"45\",\n          \"logradouro\": \"RUA DAS FLORES\",\n          \"cep\": \"04258-000\"\n        },\n        \"cdClassificacaoBloqueio\": \"W\"\n      }\n    ]\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+								},
+								{
+									"name": "BAD REQUEST",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "UNAUTHORIZED",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "FORBIDDEN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "NOT FOUND",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "TOO MANY REQUESTS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "INTERNAL SERVER ERROR",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "SERVICE UNAVAILABLE",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Consulta Portadores Pessoa Física e Pessoa Jurídica por CPF - V2",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "nrCPF",
+										"value": "00144128535",
+										"description": "(Required) Número do CPF."
+									},
+									{
+										"key": "idContaAtiva",
+										"value": "N",
+										"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+									},
+									{
+										"key": "chaveRestart",
+										"value": "",
+										"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-JWT-Assertion",
+										"value": "INTERNO:15",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/1.0.0/oneb2k/portador/porCPF/v2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"1.0.0",
+										"oneb2k",
+										"portador",
+										"porCPF",
+										"v2"
+									]
+								},
+								"description": "**Service Link:** SRH\n**PF - Portador Pessoa Física**\n* Se a consulta for pelo **CPF** do titular, responderá o numero da conta cartão e todos os portadores (titular e adicional).\n* Se o adicional possuir **CPF** próprio, ou seja diferente do titular, só será listado o cartão do adicional. A consulta não terá a visão da Conta Cartão ou do Cartão Titular.\n* Para as situações de adicionais que utilizam o **CPF** do titular, a aplicação responderá da mesma forma que uma consulta de um titular.\n\n**PJ - Portador Pessoa Jurídica**\n* Como trata-se de consulta por **CPF**, se um associado for portador de uma empresa, a api responderá, em eventual consulta por **CPF**, apenas o numero do cartão do portador consultado.  \n\n***Todos registros serão identificados conforme segue:***  \n* **C – CONTA CARTÃO** - Conta Cartão.\n* **T – TITULAR** - Refere-se ao número do Cartão Titular da conta.\n* **A - ADICIONAL** - Refere-se ao número do Cartão Adicional.\n* **P - PORTADOR** - Refere-se a número de Cartão Portador PJ.\n\n***Esta API não consulta Billing Account de Pessoa Jurídica. Para consultas de Billing Account utilize a API ``GET - portadoresPorCompID``.***\n"
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseData\": {\n    \"chaveRestart\": \"chaveRestart\",\n    \"listaPortadores\": [\n      {\n        \"tpRegistro\": \"P\",\n        \"nrConta\": \"nrConta\",\n        \"cartao\": {\n          \"jwtCartao\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n          \"nrCartao\": \"529900******8000\"\n        },\n        \"nmPortador\": \"JOSE DA SILVA MANOEL\",\n        \"cdBloqueio\": \"W\",\n        \"enderecoPortador\": {\n          \"uf\": \"SP\",\n          \"cidade\": \"SAO PAULO\",\n          \"numero\": \"45\",\n          \"logradouro\": \"RUA DAS FLORES\",\n          \"cep\": \"04258-000\"\n        },\n        \"cdClassificacaoBloqueio\": \"W\"\n      },\n      {\n        \"tpRegistro\": \"P\",\n        \"nrConta\": \"nrConta\",\n        \"cartao\": {\n          \"jwtCartao\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n          \"nrCartao\": \"529900******8000\"\n        },\n        \"nmPortador\": \"JOSE DA SILVA MANOEL\",\n        \"cdBloqueio\": \"W\",\n        \"enderecoPortador\": {\n          \"uf\": \"SP\",\n          \"cidade\": \"SAO PAULO\",\n          \"numero\": \"45\",\n          \"logradouro\": \"RUA DAS FLORES\",\n          \"cep\": \"04258-000\"\n        },\n        \"cdClassificacaoBloqueio\": \"W\"\n      }\n    ]\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+								},
+								{
+									"name": "BAD REQUEST",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "UNAUTHORIZED",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "FORBIDDEN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "NOT FOUND",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "TOO MANY REQUESTS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "INTERNAL SERVER ERROR",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "SERVICE UNAVAILABLE",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCPF",
+												"value": "<string>",
+												"description": "(Required) Número do CPF."
+											},
+											{
+												"key": "idContaAtiva",
+												"value": "<string>",
+												"description": "(Required) Status da Conta\n* **S** - Somente Contas Ativa\n* **N** - Todos as Contas\n"
+											},
+											{
+												"key": "chaveRestart",
+												"value": "<string>",
+												"description": "Chave de restart da consulta. Caso no response da sua consulta este campo vir preenchido, isso significa que existem mais ocorrências para a consulta realizada. Execute novamente a operação utilizando o conteúdo deste campo na próxima requisição."
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/portador/porCPF",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"portador",
+												"porCPF"
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "cartao",
+					"item": [
+						{
+							"name": "dados Cadastrais",
+							"item": [
+								{
+									"name": "Consulta de dados cadastrais do portador do cartão - Pessoa Física e Pessoa Jurídica",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Cache-Control",
+												"value": "no-cache",
+												"name": "cache-control",
+												"type": "text"
+											},
+											{
+												"key": "Postman-Token",
+												"value": "<calculated when request is sent>",
+												"name": "postman-token",
+												"type": "text"
+											},
+											{
+												"key": "Host",
+												"value": "<calculated when request is sent>",
+												"name": "host",
+												"type": "text"
+											},
+											{
+												"key": "User-Agent",
+												"value": "PostmanRuntime/7.39.1",
+												"name": "user-agent",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*",
+												"name": "accept",
+												"type": "text"
+											},
+											{
+												"key": "Accept-Encoding",
+												"value": "gzip, deflate, br",
+												"name": "accept-encoding",
+												"type": "text"
+											},
+											{
+												"key": "Connection",
+												"value": "keep-alive",
+												"name": "connection",
+												"type": "text"
+											},
+											{
+												"key": "jwt-cartao",
+												"value": "eyJhbGciOiJIUzUxMiJ9.eyJJRF9DQVJUQU8iOiIzNzAyMDQwMDAwODc1MDIiLCJleHAiOjE3NDkxMzM4MTl9.oOUD_JYOG45EkK7ylJq4e_XG9RuDRnY9o8OwonqlUintqRx-37ta0zdio7PMeHP_2X2uqawX0Um3WkEfBMelsg",
+												"description": "(Required) JWT que representa o número do cartão."
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "X-JWT-Assertion",
+												"value": "INTERNO:18"
+											}
+										],
+										"url": {
+											"raw": "https://cadastral-api.apps.openshift-uat.fnis.com.br/1.0.0/oneb2k/cartao/dadosCadastrais",
+											"protocol": "https",
+											"host": [
+												"cadastral-api",
+												"apps",
+												"openshift-uat",
+												"fnis",
+												"com",
+												"br"
+											],
+											"path": [
+												"1.0.0",
+												"oneb2k",
+												"cartao",
+												"dadosCadastrais"
+											]
+										},
+										"description": "**Service Link:** GCH/GBZ\n  * Consulta de dados cadastrais do portador do cartão  ***`(PF/PJ)`*** - Por Cartão.\n"
+									},
+									"response": [
+										{
+											"name": "Successful",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "jwt-cartao",
+														"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+														"description": "(Required) JWT que representa o número do cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/cartao/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"cartao",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseData\": {\n    \"produto\": \"PF\",\n    \"nome1\": \"ANA C. DA SILVA\",\n    \"dtNascimento1\": \"2004-08-17\",\n    \"nrDocumento1\": \"985.154.850-89\",\n    \"idSexo1\": \"F\",\n    \"idEstadoCivil1\": \"S\",\n    \"fone1\": \"15 3458-4544\",\n    \"fone2\": \"15 3458-4544\",\n    \"fone3\": \"15 3458-4544\",\n    \"nome2\": \"ANA C. DA SILVA\",\n    \"dtNascimento2\": \"2020-09-12\",\n    \"nrDocumento2\": \"985.154.850-89\",\n    \"idSexo2\": \"F\",\n    \"idEstadoCivil2\": \"S\",\n    \"nome3\": \"ANA C. DA SILVA\",\n    \"dtNascimento3\": \"1958-11-25\",\n    \"nrDocumento3\": \"985.154.850-89\",\n    \"idSexo3\": \"F\",\n    \"idEstadoCivil3\": \"S\",\n    \"nome4\": \"ANA C. DA SILVA\",\n    \"dtNascimento4\": \"1989-01-22\",\n    \"nrDocumento4\": \"985.154.850-89\",\n    \"idSexo4\": \"F\",\n    \"idEstadoCivil4\": \"S\",\n    \"diasAtraso\": 3000,\n    \"email\": \"diretoria@flores.com.br\",\n    \"enderecoAntigo\": \"dolor non reprehenderit culpa\",\n    \"ultimaAtualizacaoEndereco\": \"20211230\",\n    \"agencia\": \"minim dolor\",\n    \"contaCorrente\": \"adipisicing quis\",\n    \"dataAberturaConta\": \"20211230\",\n    \"nomeMae\": \"sunt deserunt ut consectetur\",\n    \"nomePai\": \"officia sit\",\n    \"dataEmissao\": \"irure sint ut ex\",\n    \"vinculoBancario\": \"10\",\n    \"chip\": \"Y\",\n    \"endereco\": {\n      \"uf\": \"SP\",\n      \"cidade\": \"SAO PAULO\",\n      \"tipo\": \"C\",\n      \"complemento\": \"Fundos\",\n      \"logradouro\": \"RUA DAS FLORES\",\n      \"bairro\": \"JD. DAS MARGARIDAS\",\n      \"cep\": \"04258-000\"\n    },\n    \"enderecoFatura\": {\n      \"uf\": \"SP\",\n      \"cidade\": \"SAO PAULO\",\n      \"complemento\": \"Fundos\",\n      \"logradouro\": \"RUA DAS FLORES\",\n      \"bairro\": \"JD. DAS MARGARIDAS\",\n      \"cep\": \"04258-000\"\n    },\n    \"informacoesGerais\": {\n      \"idTipo\": \"P\",\n      \"nrConta\": \"9658325485001548\",\n      \"nmEmbossed\": \"MARIA A SILVA\",\n      \"codProduto\": \"001\",\n      \"codSubProduto\": \"AC1\",\n      \"suffix\": \"00001\",\n      \"codBloqueio\": \"XW\",\n      \"dtUltimoBloqueio\": \"1956-03-14\",\n      \"indClienteVIP\": \"S\",\n      \"vlLimiteCredito\": 20000,\n      \"vlLimiteCreditoDisponivel\": 2000.5,\n      \"vlLimiteSaque\": 2000,\n      \"vlSaldoAnterior\": 3500,\n      \"vlSaldoAtual\": 3500,\n      \"vlAutorizacoesPendentes\": 530.4,\n      \"vlSaldoParceladoPendente\": 130.4,\n      \"vlComprasFaturar\": 30.4,\n      \"diaVencimento\": \"04\",\n      \"dtValidadeCartao\": \"MM/AA\",\n      \"historicoVencimento\": \"VA/NV\",\n      \"dtManutencaoUltimoArquivo\": \"20210721\",\n      \"hrManutencaoUltimoArquivo\": \"163714\",\n      \"cancelReason\": \"900\",\n      \"funcaoDebito\": \"0\",\n      \"funcaoCredito\": \"0\",\n      \"envioFatura\": \"E\"\n    }\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+										},
+										{
+											"name": "BAD REQUEST",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "jwt-cartao",
+														"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+														"description": "(Required) JWT que representa o número do cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/cartao/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"cartao",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "UNAUTHORIZED",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "jwt-cartao",
+														"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+														"description": "(Required) JWT que representa o número do cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/cartao/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"cartao",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "FORBIDDEN",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "jwt-cartao",
+														"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+														"description": "(Required) JWT que representa o número do cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/cartao/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"cartao",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "NOT FOUND",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "jwt-cartao",
+														"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+														"description": "(Required) JWT que representa o número do cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/cartao/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"cartao",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"name": "TOO MANY REQUESTS",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "jwt-cartao",
+														"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+														"description": "(Required) JWT que representa o número do cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/cartao/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"cartao",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Too Many Requests",
+											"code": 429,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "INTERNAL SERVER ERROR",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "jwt-cartao",
+														"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+														"description": "(Required) JWT que representa o número do cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/cartao/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"cartao",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "SERVICE UNAVAILABLE",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "<token>",
+														"description": "Added as a part of security scheme: oauth2"
+													},
+													{
+														"key": "jwt-cartao",
+														"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+														"description": "(Required) JWT que representa o número do cartão."
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/oneb2k/cartao/dadosCadastrais",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"oneb2k",
+														"cartao",
+														"dadosCadastrais"
+													]
+												}
+											},
+											"status": "Service Unavailable",
+											"code": 503,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Obtem JWT que representa do número do cartão - Pessoa Física e Pessoa Jurídica. Copy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "3313cb5402e3db4e338e769f5a2e0402=dafafb085134c52bef4e654d77df1ee9",
+										"name": "cookie",
+										"type": "text"
+									},
+									{
+										"key": "Cache-Control",
+										"value": "no-cache",
+										"name": "cache-control",
+										"type": "text"
+									},
+									{
+										"key": "Postman-Token",
+										"value": "<calculated when request is sent>",
+										"name": "postman-token",
+										"type": "text"
+									},
+									{
+										"key": "Host",
+										"value": "<calculated when request is sent>",
+										"name": "host",
+										"type": "text"
+									},
+									{
+										"key": "User-Agent",
+										"value": "PostmanRuntime/7.39.1",
+										"name": "user-agent",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*",
+										"name": "accept",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Encoding",
+										"value": "gzip, deflate, br",
+										"name": "accept-encoding",
+										"type": "text"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"name": "connection",
+										"type": "text"
+									},
+									{
+										"key": "nrCartao",
+										"value": "5121870000025832",
+										"description": "(Required) "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-JWT-Assertion",
+										"value": "INTERNO:22",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://cadastral-api.apps.openshift-uat.fnis.com.br/1.0.0/oneb2k/cartao/getJWTCartao",
+									"protocol": "https",
+									"host": [
+										"cadastral-api",
+										"apps",
+										"openshift-uat",
+										"fnis",
+										"com",
+										"br"
+									],
+									"path": [
+										"1.0.0",
+										"oneb2k",
+										"cartao",
+										"getJWTCartao"
+									]
+								},
+								"description": "**Canais:** BJWT\n  * Obtem JWT que representa do número do cartão - Pessoa Física e Pessoa Jurídica.\n"
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseData\": {\n    \"nrConta\": \"4587920000521458\",\n    \"cartao\": {\n      \"jwtCartao\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n      \"nrCartao\": \"529900******8000\"\n    }\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+								},
+								{
+									"name": "BAD REQUEST",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "UNAUTHORIZED",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "FORBIDDEN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "NOT FOUND",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "TOO MANY REQUESTS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "INTERNAL SERVER ERROR",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "SERVICE UNAVAILABLE",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Consulta Senha",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "jwt-cartao",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJJRF9DQVJUQU8iOiIyNTAwMjIwMDAwMDMyMjQ4IiwiZXhwIjoxNzAzNTMyMTUxfQ.gWg1sKP91vkLmGTqtpvYiBAjbSL3faO9R82t6djDsutbCyGxO80W5V3TUCmCG0Z_dMFXMe6CaVZzVGoY_OJYmQ",
+										"description": "(Required) "
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-JWT-Assertion",
+										"value": "INTERNO:15",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/1.0.0/oneb2k/cartao/senha",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"1.0.0",
+										"oneb2k",
+										"cartao",
+										"senha"
+									]
+								},
+								"description": "**Canais:** BJWT\n  * Obtem JWT que representa do número do cartão - Pessoa Física e Pessoa Jurídica.\n"
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseData\": {\n    \"nrConta\": \"4587920000521458\",\n    \"cartao\": {\n      \"jwtCartao\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n      \"nrCartao\": \"529900******8000\"\n    }\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+								},
+								{
+									"name": "BAD REQUEST",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "UNAUTHORIZED",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "FORBIDDEN",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "NOT FOUND",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "TOO MANY REQUESTS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Too Many Requests",
+									"code": 429,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "INTERNAL SERVER ERROR",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "SERVICE UNAVAILABLE",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "<token>",
+												"description": "Added as a part of security scheme: oauth2"
+											},
+											{
+												"key": "nrCartao",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/oneb2k/cartao/getJWTCartao",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"oneb2k",
+												"cartao",
+												"getJWTCartao"
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Valida CVV - AES256",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-JWT-Assertion",
+										"value": "INTERNO:12",
+										"type": "text"
+									},
+									{
+										"key": "jwt-cartao",
+										"value": "eyJhbGciOiJIUzUxMiJ9.eyJJRF9DQVJUQU8iOiIzNzcxNjc3NDI1Mjg1NzUiLCJleHAiOjE2OTg4NjY2NTV9.fABjW8EGSoMmbJhC1hUk2ejspOSGKGEydHTbHy9xHiqFMMBd9pHraIFuds6wEWYy6X6nHzdcPb8w5cOgMhyLCQ",
+										"type": "text"
+									},
+									{
+										"key": "bandeira",
+										"value": "A",
+										"type": "text"
+									},
+									{
+										"key": "validadeCartao",
+										"value": "0928",
+										"type": "text"
+									},
+									{
+										"key": "codigoSeguraca",
+										"value": "BD3D42760ABD25C792C076524FF8A9720020BD3D42760ABD25C792C076524FF8A972",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://cadastral-api.apps.openshift-uat.fnis.com.br/1.0.0/oneb2k/cartao/codigoSeguranca/validacao/criptografia/aes256",
+									"protocol": "https",
+									"host": [
+										"cadastral-api",
+										"apps",
+										"openshift-uat",
+										"fnis",
+										"com",
+										"br"
+									],
+									"path": [
+										"1.0.0",
+										"oneb2k",
+										"cartao",
+										"codigoSeguranca",
+										"validacao",
+										"criptografia",
+										"aes256"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Consulta cotação do dolar.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "dataVingencia",
+								"value": "20220322",
+								"description": "Data Vingência"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-JWT-Assertion",
+								"value": "INTERNO:09",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/oneb2k/cambio/cotacao/dolar",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"oneb2k",
+								"cambio",
+								"cotacao",
+								"dolar"
+							]
+						},
+						"description": "**Service Link:** GBT\n\nEste serviço tem como retorno as taxas parametrizadas pelo próprio banco, ou seja, cada Emissor \nprecisa abrir sua demanda no Portal de Parâmetros e solicitar a parametrização das taxas do dólar na **BC89**.\n\n\nParâmetos:\n*   **dataVingencia:** Caso a data vigencia for informado o retorno será apenas da data definida, caso necessário\n    visualizar todas as taxas, basta não informar o parâmetro. \n\n\n\n**Obs.:** Atualmente as informações sobre cotações do Dólar são atualizadas no batch, ou seja, \na API trará somente as informações com data inferior ao dia da consulta D-1.\n"
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									},
+									{
+										"key": "dataVingencia",
+										"value": "<string>",
+										"description": "Data Vingência"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/cambio/cotacao/dolar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"cambio",
+										"cotacao",
+										"dolar"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"responseData\": {\n    \"listaTaxaCotacaoDolar\": [\n      {\n        \"data\": \"20200401\",\n        \"cotacao\": \"5.25\"\n      },\n      {\n        \"data\": \"20200401\",\n        \"cotacao\": \"5.25\"\n      }\n    ]\n  },\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"Sucesso.\",\n    \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\"\n  }\n}"
+						},
+						{
+							"name": "BAD REQUEST",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									},
+									{
+										"key": "dataVingencia",
+										"value": "<string>",
+										"description": "Data Vingência"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/cambio/cotacao/dolar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"cambio",
+										"cotacao",
+										"dolar"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "UNAUTHORIZED",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									},
+									{
+										"key": "dataVingencia",
+										"value": "<string>",
+										"description": "Data Vingência"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/cambio/cotacao/dolar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"cambio",
+										"cotacao",
+										"dolar"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "FORBIDDEN",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									},
+									{
+										"key": "dataVingencia",
+										"value": "<string>",
+										"description": "Data Vingência"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/cambio/cotacao/dolar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"cambio",
+										"cotacao",
+										"dolar"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									},
+									{
+										"key": "dataVingencia",
+										"value": "<string>",
+										"description": "Data Vingência"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/cambio/cotacao/dolar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"cambio",
+										"cotacao",
+										"dolar"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "TOO MANY REQUESTS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									},
+									{
+										"key": "dataVingencia",
+										"value": "<string>",
+										"description": "Data Vingência"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/cambio/cotacao/dolar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"cambio",
+										"cotacao",
+										"dolar"
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "INTERNAL SERVER ERROR",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									},
+									{
+										"key": "dataVingencia",
+										"value": "<string>",
+										"description": "Data Vingência"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/cambio/cotacao/dolar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"cambio",
+										"cotacao",
+										"dolar"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "SERVICE UNAVAILABLE",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									},
+									{
+										"key": "dataVingencia",
+										"value": "<string>",
+										"description": "Data Vingência"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/oneb2k/cambio/cotacao/dolar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"oneb2k",
+										"cambio",
+										"cotacao",
+										"dolar"
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"responseId\": \"A890AD89A890ASD890ASDF901KL1AUIOSD\",\n  \"code\": \"100100\",\n  \"message\": \"Ocorreu um erro na sua requisição - Mais informações em 'additionalMessages'.\",\n  \"description\": \"Detalhe do erro ocorrido.\",\n  \"additionalMessages\": [\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    },\n    {\n      \"code\": \"MF-30\",\n      \"message\": \"INTERVALO DE DATAS INVÁLIDO.\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/portador/porCPF/v2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "nrCPF",
+						"value": "18147399391"
+					},
+					{
+						"key": "idContaAtiva",
+						"value": "S"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 37c33dfc-6d22-35ba-bfc4-29ed7c0b7108"
+					},
+					{
+						"key": "X-JWT-Assertion",
+						"value": "INTERNO:15"
+					}
+				],
+				"url": {
+					"raw": "https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/portador/porCPF/v2",
+					"protocol": "https",
+					"host": [
+						"cadastral-api",
+						"apps",
+						"openshift",
+						"fnis",
+						"com",
+						"br"
+					],
+					"path": [
+						"1.0.0",
+						"oneb2k",
+						"portador",
+						"porCPF",
+						"v2"
+					]
+				},
+				"description": "Generated from cURL: curl -X -k 'GET' 'https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/portador/porCPF/v2' -H 'accept: application/json' -H 'nrCPF: 18147399391' -H 'idContaAtiva: S' -H 'Authorization: Bearer 37c33dfc-6d22-35ba-bfc4-29ed7c0b7108' -H 'X-JWT-Assertion: INTERNO:15'"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/portador/porCPF/v2 Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "nrCPF",
+						"value": "18147399391"
+					},
+					{
+						"key": "idContaAtiva",
+						"value": "S"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 37c33dfc-6d22-35ba-bfc4-29ed7c0b7108"
+					},
+					{
+						"key": "X-JWT-Assertion",
+						"value": "INTERNO:15"
+					}
+				],
+				"url": {
+					"raw": "https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/portador/porCPF/v2",
+					"protocol": "https",
+					"host": [
+						"cadastral-api",
+						"apps",
+						"openshift",
+						"fnis",
+						"com",
+						"br"
+					],
+					"path": [
+						"1.0.0",
+						"oneb2k",
+						"portador",
+						"porCPF",
+						"v2"
+					]
+				},
+				"description": "Generated from cURL: curl -X -k 'GET' 'https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/portador/porCPF/v2' -H 'accept: application/json' -H 'nrCPF: 18147399391' -H 'idContaAtiva: S' -H 'Authorization: Bearer 37c33dfc-6d22-35ba-bfc4-29ed7c0b7108' -H 'X-JWT-Assertion: INTERNO:15'"
+			},
+			"response": []
+		},
+		{
+			"name": "https://codeconnect-homolog.fnis.com.br/cadastral/1.0.0/oneb2k/cartao/getJWTCartao",
+			"request": {
+				"auth": {
+					"type": "inherit"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "nrCartao",
+						"value": "4092810000146079"
+					},
+					{
+						"key": "X-JWT-Assertion",
+						"value": "INTERNO:09"
+					}
+				],
+				"url": {
+					"raw": "https://cadastral-api.apps.openshift.fnis.com.br/1.0.0/oneb2k/cartao/getJWTCartao",
+					"protocol": "https",
+					"host": [
+						"cadastral-api",
+						"apps",
+						"openshift",
+						"fnis",
+						"com",
+						"br"
+					],
+					"path": [
+						"1.0.0",
+						"oneb2k",
+						"cartao",
+						"getJWTCartao"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "c6a91515-392f-3cc2-9e2e-85e44c70cfbf",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://cadastral-api.apps.openshift-sit.fnis.com.br/1.0.0",
+			"type": "string"
+		},
+		{
+			"key": "jwtCartao",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJJRF9DQVJUQU8iOiI0MDkyODEwMDE0NzQzODc5IiwiZXhwIjoxNjc5NTEwMTA3fQ.zgSVCwhE3taQ1WZCj9MLfXzM0xLFv6X79AGIdcdg-q1enIAnBQ6kE7Y9nywqgnSfZwCnxJXViS887-k0Q1DoMg",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}

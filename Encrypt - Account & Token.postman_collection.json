@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "45978587-7471-4e2d-ae8e-17c529dace6c",
+		"name": "Encrypt - Account & Token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "716398",
+		"_collection_link": "https://planetary-sunset-280591.postman.co/workspace/FIS-GoWallet---AMEX~dcaae366-cda8-4494-b102-a660e129b742/collection/716398-45978587-7471-4e2d-ae8e-17c529dace6c?action=share&source=collection_link&creator=716398"
+	},
+	"item": [
+		{
+			"name": "encryptAccount - Sem CVV",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"data\":{\r\n        \"account_number\" : \"370204000087502\"\r\n    },\r\n    \"KID\":\"JWE_AES_AMX_2209_0001\",\r\n    \"Key\" : \"9b0440cf2ac12288efb639d1e1f14c80e038ced557c5530032aa37a2f6ccc700\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount",
+					"protocol": "https",
+					"host": [
+						"fisgowallet-encrypt-mock",
+						"apps",
+						"openshift-sit",
+						"fnis",
+						"com",
+						"br"
+					],
+					"path": [
+						"encryptAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "encryptAccount - Com CVV",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"data\":{\r\n        \"account_number\" : \"370204000087502\",\r\n        \"security_code\": \"2813\",\r\n        \"expiry_date\" : \"0234\"\r\n    },\r\n    \"KID\":\"JWE_AES_AMX_2209_0001\",\r\n    \"Key\" : \"9b0440cf2ac12288efb639d1e1f14c80e038ced557c5530032aa37a2f6ccc700\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount",
+					"protocol": "https",
+					"host": [
+						"fisgowallet-encrypt-mock",
+						"apps",
+						"openshift-sit",
+						"fnis",
+						"com",
+						"br"
+					],
+					"path": [
+						"encryptAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "decryptAccount",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"data\":{\r\n        \"account_number\" : \"370204000087502\",\r\n        \"security_code\": \"2813\",\r\n        \"expiry_date\" : \"0230\"\r\n    },\r\n    \"KID\":\"JWE_AES_AMX_2209_0001\",\r\n    \"Key\" : \"9b0440cf2ac12288efb639d1e1f14c80e038ced557c5530032aa37a2f6ccc700\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptAccount",
+					"protocol": "https",
+					"host": [
+						"fisgowallet-encrypt-mock",
+						"apps",
+						"openshift-sit",
+						"fnis",
+						"com",
+						"br"
+					],
+					"path": [
+						"encryptAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "encryptToken",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"data\":{\r\n        \"token_number\" : \"65465464654646464\",\r\n        \"token_reference\" :\"TK_CELULAR15082025\"\r\n    },\r\n    \"KID\":\"JWE_AES_AMX_2209_0001\",\r\n    \"Key\" : \"9b0440cf2ac12288efb639d1e1f14c80e038ced557c5530032aa37a2f6ccc700\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fisgowallet-encrypt-mock.apps.openshift-sit.fnis.com.br/encryptToken",
+					"protocol": "https",
+					"host": [
+						"fisgowallet-encrypt-mock",
+						"apps",
+						"openshift-sit",
+						"fnis",
+						"com",
+						"br"
+					],
+					"path": [
+						"encryptToken"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
